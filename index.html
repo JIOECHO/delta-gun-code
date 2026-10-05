@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>三角洲行动 · 烽火地带 改枪码速查手册</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#080c12;--card:#121a26;--card-hi:#16202e;--line:#233043;--line2:#2e3f54;
+  --txt:#edf2f8;--dim:#a2b4c8;--dim2:#8497ad;--gold:#ffb02e;
+  --sans:"Noto Sans SC","HarmonyOS Sans SC","MiSans","Source Han Sans SC","PingFang SC","Microsoft YaHei UI","Microsoft YaHei",system-ui,sans-serif;
+  --mono:Consolas,"Lucida Console","DejaVu Sans Mono","Courier New",monospace;
+}
+html{
+  scroll-behavior:smooth;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+body{
+  margin:0;background:var(--bg);color:var(--txt);
+  font-family:var(--sans);font-size:15px;line-height:24px;font-weight:400;
+  font-variant-numeric:tabular-nums;
+  background-image:
+    radial-gradient(900px 500px at 12% -10%, rgba(255,138,0,.15), transparent 60%),
+    radial-gradient(800px 460px at 92% 0%, rgba(74,168,255,.12), transparent 60%),
+    linear-gradient(180deg,#0a1017 0%, #080c12 42%, #080c12 100%);
+  background-attachment:fixed;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.hero{padding:46px 0 24px;border-bottom:1px solid var(--line)}
+.brand{
+  display:inline-block;font-size:13px;line-height:20px;letter-spacing:2px;
+  color:var(--gold);font-weight:500;
+  border:1px solid rgba(255,176,46,.34);border-radius:999px;padding:5px 15px;
+  background:rgba(255,176,46,.07);
+}
+.hero h1{
+  margin:16px 0 10px;font-size:38px;line-height:46px;font-weight:700;color:#f8fbfe;
+  text-shadow:0 0 38px rgba(255,168,46,.4);
+}
+@media(min-width:720px){.hero h1{font-size:44px;line-height:52px}}
+@media(min-width:1060px){.hero h1{font-size:50px;line-height:58px}}
+.sub{margin:0;color:var(--dim);font-size:15px;line-height:24px}
+.sub b{color:var(--gold);font-weight:700}
+.sub .dot{margin:0 10px;color:var(--line2)}
+.searchbar{display:flex;gap:10px;margin:24px 0 0;max-width:680px}
+.searchbar input{
+  flex:1;min-width:0;background:var(--card);border:1px solid var(--line2);color:var(--txt);
+  border-radius:11px;padding:11px 15px;font-size:15px;line-height:22px;font-family:inherit;outline:none;
+}
+.searchbar input::placeholder{color:var(--dim2)}
+.searchbar input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,176,46,.13)}
+.searchbar button{
+  background:var(--card);border:1px solid var(--line2);color:var(--dim);border-radius:11px;
+  padding:0 18px;cursor:pointer;font-family:inherit;font-size:14px;line-height:22px;
+}
+.searchbar button:hover{border-color:var(--gold);color:var(--gold)}
+.pills{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 0}
+.pill{
+  border:1px solid var(--line2);background:var(--card);color:var(--dim);border-radius:999px;
+  padding:7px 15px;font-size:14px;line-height:20px;cursor:pointer;font-family:inherit;
+  transition:border-color .15s,color .15s,background .15s;
+  display:inline-flex;align-items:center;gap:7px;
+}
+.pill:hover{color:var(--txt);border-color:var(--acc,var(--gold))}
+.pill.active{background:rgba(255,176,46,.1);border-color:var(--gold);color:var(--gold);font-weight:500}
+.pill .n{font-size:12px;color:var(--dim2)}
+.pill.active .n{color:#cc9d3e}
+.howto{
+  margin:26px 0 0;background:linear-gradient(180deg,rgba(255,176,46,.07),rgba(255,176,46,.02));
+  border:1px solid rgba(255,176,46,.22);border-radius:14px;padding:16px 20px;
+}
+.howto h2{margin:0 0 8px;font-size:14px;line-height:22px;letter-spacing:1px;color:var(--gold);font-weight:500}
+.howto ol{margin:0;padding-left:20px;color:#c9d7e4;font-size:14px;line-height:23px}
+.howto li{margin:3px 0}
+.howto b{color:#fff;font-weight:500}
+.cat{margin:46px 0 0;--acc:#ff8a00;--a1:rgba(255,138,0,.12);--a2:rgba(255,138,0,.38);--a3:rgba(255,138,0,.55)}
+.cat-head{display:flex;align-items:center;gap:14px;margin:0 0 18px;flex-wrap:wrap}
+.cat-bar{width:5px;height:30px;border-radius:3px;background:var(--acc);box-shadow:0 0 12px var(--acc)}
+.cat-head h2{margin:0;font-size:24px;line-height:32px;font-weight:700;color:#f6f9fd}
+.cat-blurb{color:var(--dim);font-size:14px;line-height:22px;margin:0}
+.cat-meta{margin-left:auto;display:flex;gap:8px}
+.badge{
+  font-size:13px;line-height:20px;color:var(--acc);border:1px solid var(--a2);
+  background:var(--a1);border-radius:999px;padding:4px 12px;white-space:nowrap;
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:16px}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
+.card{
+  background:linear-gradient(180deg,var(--card-hi),var(--card));
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:border-color .16s ease,box-shadow .16s ease;
+}
+.card:hover{border-color:var(--a3);box-shadow:0 10px 28px rgba(0,0,0,.5)}
+.card-head{
+  display:flex;align-items:center;gap:11px;padding:13px 16px;border-bottom:1px solid var(--line);
+  background:linear-gradient(90deg,var(--a1),transparent 72%);
+}
+.idx{
+  font-family:var(--mono);font-size:12px;line-height:18px;font-weight:700;color:var(--acc);
+  border:1px solid var(--a2);border-radius:6px;padding:1px 7px;
+}
+.card-head h3{margin:0;font-size:17px;line-height:24px;font-weight:500;color:#f2f7fc;flex:1;min-width:0}
+.cnt{font-size:12px;line-height:18px;color:var(--dim);white-space:nowrap}
+.copy-all{
+  background:transparent;border:1px solid var(--line2);color:var(--dim);border-radius:8px;
+  padding:5px 11px;font-size:12px;line-height:18px;cursor:pointer;font-family:inherit;
+  white-space:nowrap;transition:border-color .15s,color .15s;
+}
+.copy-all:hover{border-color:var(--acc);color:var(--acc)}
+.builds{list-style:none;margin:0;padding:6px 0 8px}
+.build{padding:10px 16px;border-top:1px dashed rgba(255,255,255,.06)}
+.build:first-child{border-top:0}
+.build-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.bnum{
+  flex:0 0 auto;width:20px;height:20px;border-radius:6px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;line-height:20px;font-weight:700;
+  color:var(--acc);background:var(--a1);border:1px solid var(--a2);
+}
+.bname{font-size:15px;line-height:22px;font-weight:500;color:#f4f8fc;word-break:break-word}
+.code-row{display:flex;align-items:stretch;gap:8px}
+code.code{
+  flex:1;min-width:0;font-family:var(--mono);font-size:13px;line-height:20px;font-weight:400;
+  background:#0a1017;border:1px solid var(--line);border-radius:9px;padding:8px 11px;
+  color:#a8eecb;overflow-x:auto;white-space:nowrap;
+  font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0;
+}
+code.code::-webkit-scrollbar{height:5px}
+code.code::-webkit-scrollbar-thumb{background:var(--line2);border-radius:3px}
+.copy{
+  flex:0 0 auto;background:rgba(255,255,255,.05);border:1px solid var(--line2);color:var(--txt);
+  border-radius:9px;padding:0 14px;font-size:13px;line-height:20px;cursor:pointer;
+  font-family:inherit;white-space:nowrap;transition:border-color .15s,color .15s,background .15s;
+}
+.copy:hover{border-color:var(--acc);color:var(--acc);background:var(--a1)}
+.copy.ok,.copy-all.ok{background:rgba(46,230,168,.16);border-color:#2ee6a8;color:#2ee6a8;font-weight:500}
+.empty{display:none;text-align:center;color:var(--dim);padding:70px 0;font-size:15px;line-height:24px}
+.empty.on{display:block}
+footer{margin:56px 0 0;padding:26px 0 44px;border-top:1px solid var(--line);
+  color:var(--dim2);font-size:13px;line-height:22px;text-align:center}
+.toast{
+  position:fixed;left:0;right:0;bottom:34px;margin:0 auto;width:max-content;max-width:80vw;
+  background:#16202e;border:1px solid var(--gold);color:var(--gold);
+  padding:10px 20px;border-radius:11px;font-size:14px;line-height:22px;
+  opacity:0;pointer-events:none;transition:opacity .2s;z-index:99;
+  box-shadow:0 12px 34px rgba(0,0,0,.5);
+}
+.toast.on{opacity:1}
+@media(max-width:560px){
+  .hero{padding:32px 0 18px}
+  .cat-meta{margin-left:0}
+  code.code{font-size:12px}
+}
+/* ================= 作者标注 ================= */
+.hero{position:relative}
+.author-tag{
+  position:absolute;top:14px;right:18px;z-index:3;
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,176,46,.12);border:1px solid rgba(255,176,46,.45);
+  color:var(--gold);padding:6px 13px;border-radius:999px;
+  font-size:13px;line-height:18px;font-weight:500;letter-spacing:.4px;
+  box-shadow:0 8px 22px rgba(255,176,46,.14);white-space:nowrap;
+}
+.author-tag b{font-weight:700}
+
+/* ================= 动作栏 ================= */
+.actionbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 6px}
+.act{
+  display:inline-flex;align-items:center;gap:7px;font-family:inherit;cursor:pointer;
+  background:rgba(255,255,255,.05);border:1px solid var(--line2);color:var(--txt);
+  padding:9px 16px;border-radius:10px;font-size:14px;line-height:20px;
+  transition:border-color .15s,background .15s,color .15s,box-shadow .15s;
+}
+.act:hover{border-color:#3d5875;background:rgba(255,255,255,.08)}
+.act .ic{font-size:15px;line-height:20px}
+.act-gold{border-color:rgba(255,176,46,.45);color:var(--gold);background:rgba(255,176,46,.08)}
+.act-gold:hover{border-color:var(--gold);background:rgba(255,176,46,.16);box-shadow:0 8px 22px rgba(255,176,46,.16)}
+.act-mark{color:var(--gold);border-color:rgba(255,176,46,.4)}
+
+/* ================= 模态框 ================= */
+.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(4,7,11,.8);
+  z-index:120;display:none;align-items:flex-start;justify-content:center;padding:24px 14px;overflow:auto}
+.modal.on{display:flex}
+.modal-box{width:100%;max-width:1020px;margin:auto;background:#0e1620;
+  border:1px solid var(--line2);border-radius:16px;box-shadow:0 26px 70px rgba(0,0,0,.62);
+  display:flex;flex-direction:column;max-height:88vh}
+.modal-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);flex:0 0 auto}
+.modal-head h2{margin:0;font-size:19px;line-height:26px;font-weight:700;flex:1}
+.modal-head .hint{font-size:12px;line-height:18px;color:var(--dim2);font-weight:400}
+.modal-x{background:transparent;border:1px solid var(--line2);color:var(--dim);border-radius:9px;
+  width:32px;height:32px;font-size:15px;line-height:18px;cursor:pointer;font-family:inherit;flex:0 0 auto}
+.modal-x:hover{border-color:#3d5875;color:var(--txt)}
+.modal-body{flex:1 1 auto;overflow:auto;padding:18px 20px}
+.modal-foot{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:14px 20px;
+  border-top:1px solid var(--line);background:#0c1420;flex-wrap:wrap}
+.modal-foot .ed-status{flex:1;font-size:13px;line-height:20px;color:var(--dim2)}
+.btn{font-family:inherit;cursor:pointer;border-radius:9px;font-size:14px;line-height:20px;
+  padding:9px 16px;border:1px solid var(--line2);background:rgba(255,255,255,.05);color:var(--txt);
+  transition:border-color .15s,background .15s}
+.btn:hover{border-color:#3d5875;background:rgba(255,255,255,.09)}
+.btn.primary{background:rgba(255,176,46,.16);border-color:rgba(255,176,46,.5);color:var(--gold);font-weight:500}
+.btn.primary:hover{background:rgba(255,176,46,.24);border-color:var(--gold)}
+.btn.danger{border-color:rgba(255,95,109,.45);color:#ff8a94}
+.btn.danger:hover{background:rgba(255,95,109,.14);border-color:#ff5f6d}
+.btn.sm{font-size:12px;line-height:18px;padding:5px 11px;border-radius:8px}
+
+/* ================= Tabs ================= */
+.tabs{display:flex;gap:6px;padding:14px 20px 0;flex:0 0 auto;flex-wrap:wrap}
+.tabs button{font-family:inherit;cursor:pointer;background:transparent;border:1px solid transparent;
+  color:var(--dim);padding:7px 14px;border-radius:9px;font-size:14px;line-height:20px}
+.tabs button:hover{color:var(--txt);background:rgba(255,255,255,.05)}
+.tabs button.on{color:var(--gold);background:rgba(255,176,46,.1);border-color:rgba(255,176,46,.35)}
+.tabpane{display:none}
+.tabpane.on{display:block}
+
+/* ================= 编辑器 ================= */
+.ed-tip{font-size:13px;line-height:21px;color:var(--dim);background:rgba(255,255,255,.04);
+  border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin:0 0 16px}
+.ed-tip b{color:var(--txt)}
+.ed-cat{border:1px solid var(--line);border-radius:12px;margin:0 0 14px;overflow:hidden;background:rgba(255,255,255,.02)}
+.ed-cat-head{display:flex;align-items:center;gap:9px;padding:10px 13px;background:rgba(255,255,255,.04);
+  border-bottom:1px solid var(--line);flex-wrap:wrap}
+.ed-cat-head .cat-dot{width:10px;height:10px;border-radius:3px;flex:0 0 auto}
+.ed-gun{padding:10px 13px;border-bottom:1px solid var(--line)}
+.ed-gun:last-child{border-bottom:0}
+.ed-gun-head{display:flex;align-items:center;gap:9px;margin:0 0 9px;flex-wrap:wrap}
+.ed-build-row{display:grid;grid-template-columns:180px 1fr 34px;gap:8px;align-items:center;margin:0 0 7px}
+.ed-build-row:last-child{margin-bottom:0}
+input.ed,select.ed{font-family:inherit;font-size:13px;line-height:20px;color:var(--txt);
+  background:#0a121c;border:1px solid var(--line2);border-radius:8px;padding:6px 10px;width:100%;min-width:0}
+input.ed:focus,select.ed:focus{outline:none;border-color:rgba(255,176,46,.55);background:#0c1622}
+input.ed.name{font-weight:500;font-size:14px;flex:1;min-width:170px;width:auto}
+input.ed.code{font-family:var(--mono);font-size:12px;letter-spacing:.2px}
+.ed-del{background:transparent;border:1px solid var(--line2);color:var(--dim2);border-radius:8px;
+  width:34px;height:32px;font-size:14px;line-height:18px;cursor:pointer;font-family:inherit;flex:0 0 auto;padding:0}
+.ed-del:hover{border-color:rgba(255,95,109,.6);color:#ff8a94;background:rgba(255,95,109,.1)}
+.ed-lab{font-size:11px;line-height:16px;color:var(--dim2);display:block;margin:0 0 3px}
+.ed-empty{color:var(--dim2);font-size:13px;line-height:21px;padding:8px 0}
+.ed-add{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 0}
+
+/* ================= 批量导入 ================= */
+.bulk-area{width:100%;min-height:230px;font-family:var(--mono);font-size:12px;line-height:20px;
+  color:var(--txt);background:#0a121c;border:1px solid var(--line2);border-radius:10px;padding:11px;resize:vertical}
+.bulk-area:focus{outline:none;border-color:rgba(255,176,46,.55)}
+.bulk-res{margin:12px 0 0;font-size:13px;line-height:21px;color:var(--dim)}
+.bulk-res b{color:var(--gold)}
+.file-input{display:none}
+.dl-row{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 14px}
+
+/* ================= 抽奖 ================= */
+.draw-meta{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;line-height:20px;
+  color:var(--dim);text-align:center;margin:0 0 14px}
+.draw-meta b{color:var(--gold);font-size:15px}
+.draw-pane{display:none;text-align:center}
+.draw-pane.on{display:flex;flex-direction:column;align-items:center}
+
+/* 转盘上方：渐变猫爪 + 好运 */
+.lucky{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;min-height:26px;margin:0 auto}
+.lucky span{font-size:17px;line-height:24px;font-weight:700;color:var(--gold);letter-spacing:1px;
+  text-shadow:0 0 20px rgba(255,176,46,.35)}
+.lucky .lucky-paw{display:inline-flex;width:23px;height:23px;flex:0 0 auto;
+  filter:drop-shadow(0 0 7px rgba(255,176,46,.35))}
+.lucky .lucky-paw svg{width:100%;height:100%;display:block}
+
+/* 幸运转盘 */
+.wheel-stage{position:relative;width:360px;height:360px;max-width:86vw;max-height:86vw;flex:0 0 auto;margin:16px auto 0}
+.paw-ring{position:absolute;inset:0;pointer-events:none;z-index:3;transform-origin:50% 50%}
+.paw-ring svg{width:100%;height:100%;display:block}
+.tick-ring{position:absolute;inset:0;pointer-events:none;z-index:3}
+.tick-ring svg{width:100%;height:100%;display:block}
+.wheel-canvas{width:100%;height:100%;display:block;border-radius:50%;transform-origin:50% 50%;
+  box-shadow:0 0 0 6px #16202e,0 0 0 8px rgba(255,176,46,.35),0 18px 44px rgba(0,0,0,.55)}
+.wheel-hub{position:absolute;top:50%;left:50%;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;
+  background:radial-gradient(circle at 50% 30%,#4d3713,#251805 58%,#0d0902);
+  border:2px solid rgba(255,176,46,.8);color:var(--gold);font-size:13px;line-height:18px;font-weight:700;
+  letter-spacing:.5px;display:flex;align-items:center;justify-content:center;text-align:center;pointer-events:none;
+  box-shadow:0 0 0 7px rgba(8,12,18,.9),0 0 30px rgba(255,176,46,.45),inset 0 2px 10px rgba(255,176,46,.3);
+  text-shadow:0 0 13px rgba(255,176,46,.65)}
+.wheel-pin{position:absolute;top:-4px;left:50%;margin-left:-11px;width:0;height:0;
+  border-left:11px solid transparent;border-right:11px solid transparent;border-top:22px solid var(--gold);
+  filter:drop-shadow(0 3px 6px rgba(0,0,0,.6));z-index:4;pointer-events:none}
+
+/* 结果卡：从中间弹出 */
+.draw-result{width:100%;max-width:520px;margin:16px auto 0;border:1px solid rgba(255,176,46,.45);border-radius:13px;
+  background:rgba(255,176,46,.07);padding:15px 17px;text-align:center;opacity:0;transform:scale(.9)}
+.draw-result.on{animation:drPop .62s cubic-bezier(.2,.9,.3,1) both}
+@keyframes drPop{
+  0%{opacity:0;transform:scale(.32) translateY(20px)}
+  55%{opacity:1;transform:scale(1.07) translateY(0)}
+  78%{transform:scale(.97)}
+  100%{opacity:1;transform:scale(1)}
+}
+.draw-result .dr-gun{font-size:17px;line-height:25px;font-weight:700;color:var(--gold)}
+.draw-result .dr-name{font-size:13px;line-height:20px;color:var(--dim);margin:2px 0 10px}
+.draw-result code.dr-code{display:block;font-family:var(--mono);font-size:12px;line-height:20px;color:var(--txt);
+  background:#0a121c;border:1px solid var(--line2);border-radius:9px;padding:9px 11px;
+  word-break:break-all;text-align:left;margin:0 0 11px;user-select:all}
+.draw-btn{font-family:inherit;cursor:pointer;font-size:16px;line-height:22px;font-weight:700;
+  padding:12px 34px;border-radius:12px;border:1px solid rgba(255,176,46,.55);margin:14px auto 0;
+  background:rgba(255,176,46,.18);color:var(--gold);transition:background .15s,box-shadow .15s}
+.draw-btn:hover{background:rgba(255,176,46,.3);box-shadow:0 10px 26px rgba(255,176,46,.22)}
+.draw-btn:disabled{opacity:.55;cursor:default;box-shadow:none}
+
+/* 幸运滚轮 */
+.roller{position:relative;border:1px solid var(--line2);border-radius:14px;overflow:hidden;width:100%;max-width:560px;
+  background:linear-gradient(180deg,#0b131e,#101a28);padding:12px 0;margin:0 auto}
+.roll-mask{overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,#000 13%,#000 87%,rgba(0,0,0,0) 100%);
+  mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0,#000 13%,#000 87%,rgba(0,0,0,0) 100%)}
+.roll-row{height:36px;overflow:hidden}
+.roll-track{display:flex;align-items:center;height:36px;white-space:nowrap;will-change:transform}
+.roll-track span{flex:0 0 auto;font-size:16px;line-height:24px;font-weight:700;letter-spacing:1px;
+  color:var(--dim);padding:0 13px}
+.roll-track .roll-paw{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;padding:0 4px}
+.roll-track .roll-paw svg{width:26px;height:26px;display:block}
+.roll-window{position:absolute;left:50%;top:0;bottom:0;width:118px;transform:translateX(-50%);
+  border-left:1px solid rgba(255,176,46,.45);border-right:1px solid rgba(255,176,46,.45);
+  pointer-events:none;transition:background .3s,box-shadow .3s}
+.roller.hit .roll-window{background:rgba(255,176,46,.22);box-shadow:0 0 28px rgba(255,176,46,.5)}
+.roller.pause .roll-window{background:rgba(255,176,46,.12)}
+
+/* 幸运老虎机 */
+.slot-wrap{display:flex;align-items:center;justify-content:center;gap:26px;margin:4px 0 0}
+.slot-box{position:relative;display:flex;gap:12px;padding:14px;border-radius:16px;
+  background:linear-gradient(180deg,#111c2b,#0a121c);border:1px solid var(--line2);
+  box-shadow:inset 0 4px 20px rgba(0,0,0,.65);transition:border-color .3s,box-shadow .3s}
+.slot-box.win{border-color:rgba(255,176,46,.8);
+  box-shadow:0 0 36px rgba(255,176,46,.45),inset 0 0 28px rgba(255,176,46,.18)}
+.reel{width:96px;height:96px;overflow:hidden;border-radius:12px;background:#0a121c;
+  border:1px solid var(--line2);display:flex;align-items:flex-start;justify-content:center;
+  transition:border-color .25s,box-shadow .25s}
+.reel.snap{animation:reelSnap .42s cubic-bezier(.3,1.6,.5,1)}
+@keyframes reelSnap{0%{transform:scale(1)}45%{transform:scale(1.055)}100%{transform:scale(1)}}
+.reel.lock{border-color:rgba(255,176,46,.85);box-shadow:0 0 20px rgba(255,176,46,.35)}
+.reel-strip{display:block;will-change:transform}
+.reel-strip .cell{height:96px;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 34%,rgba(255,176,46,.10),rgba(0,0,0,0) 64%)}
+.reel-strip .cell svg{width:72px;height:72px;display:block;
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.6)) drop-shadow(0 0 9px rgba(255,176,46,.30))}
+.lever{position:relative;width:66px;height:140px;border:0;background:transparent;cursor:pointer;padding:0}
+.lever-base{position:absolute;left:50%;bottom:0;width:54px;height:27px;transform:translateX(-50%);
+  border-radius:12px;border:1px solid #46586f;
+  background:linear-gradient(180deg,#4a5f79 0,#26364a 34%,#131d29 72%,#0a1119 100%);
+  box-shadow:0 9px 22px rgba(0,0,0,.62),inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 -4px 9px rgba(0,0,0,.6)}
+.lever-ring{position:absolute;left:50%;bottom:7px;width:30px;height:10px;margin-left:-15px;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 32%,#05090e,#1b2634 78%);
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.85),0 1px 0 rgba(255,255,255,.09)}
+.lever-arm{position:absolute;left:50%;bottom:19px;width:11px;height:96px;margin-left:-5.5px;border-radius:6px;
+  transform-origin:bottom center;transition:transform .22s cubic-bezier(.3,1.6,.6,1);
+  background:linear-gradient(90deg,#141d28 0,#4e6480 14%,#c3d4e8 31%,#f2f7fd 41%,#93a9c2 54%,
+    #40536a 74%,#1b2634 88%,#0d151e 100%);
+  box-shadow:0 0 0 1px rgba(0,0,0,.55),0 5px 14px rgba(0,0,0,.5)}
+.lever-knob{position:absolute;top:-18px;left:50%;width:32px;height:32px;margin-left:-16px;border-radius:50%;
+  background:radial-gradient(circle at 33% 25%,#fffaf0 0,#ffe3a0 14%,#ffc247 38%,#ff9f16 58%,#c07400 79%,#6b4100 100%);
+  box-shadow:0 0 0 1px rgba(255,231,170,.55),0 0 21px rgba(255,176,46,.62),
+    inset -4px -5px 10px rgba(88,52,0,.72),inset 4px 4px 9px rgba(255,255,255,.5)}
+.lever-gloss{position:absolute;top:4px;left:6px;width:12px;height:8px;border-radius:50%;transform:rotate(-20deg);
+  background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.95),rgba(255,255,255,0) 72%)}
+.lever.on .lever-arm{transform:rotate(32deg)}
+.lever:hover .lever-knob{box-shadow:0 0 0 1px rgba(255,236,190,.75),0 0 30px rgba(255,176,46,.92),
+  inset -4px -5px 10px rgba(88,52,0,.72),inset 4px 4px 9px rgba(255,255,255,.55)}
+.lever:active .lever-arm{transform:rotate(34deg)}
+
+/* ================= 修改标记 ================= */
+.foot-author{color:var(--gold)}
+.edited-flag{display:none;align-items:center;gap:6px;font-size:12px;line-height:18px;
+  color:var(--gold);background:rgba(255,176,46,.12);border:1px solid rgba(255,176,46,.4);
+  padding:4px 11px;border-radius:999px;margin-left:2px}
+.edited-flag.on{display:inline-flex}
+
+@media(max-width:720px){
+  .ed-build-row{grid-template-columns:1fr 34px}
+  .ed-build-row .ed-note{grid-column:1 / -1}
+  .modal{padding:12px 8px}
+  .modal-box{max-height:94vh}
+}
+@media(max-width:560px){
+  .author-tag{top:8px;right:10px;font-size:12px;line-height:17px;padding:5px 10px}
+  .hero{padding-top:44px}
+  .wheel-stage{width:300px;height:300px}
+  .act{font-size:13px;padding:8px 13px}
+}
+
+/* ================= 抽奖：类型切换条 ================= */
+.draw-modes{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:0 0 12px}
+.dm-label{font-size:12px;line-height:18px;color:var(--dim2)}
+.dm-btn{font-family:inherit;cursor:pointer;font-size:13px;line-height:20px;font-weight:500;
+  padding:6px 14px;border-radius:9px;border:1px solid var(--line2);
+  background:rgba(255,255,255,.04);color:var(--dim);transition:background .15s,border-color .15s,color .15s}
+.dm-btn:hover{border-color:rgba(255,176,46,.5);color:var(--txt)}
+.dm-btn.on{background:rgba(255,176,46,.18);border-color:rgba(255,176,46,.6);color:var(--gold);font-weight:700}
+.dm-btn:disabled{opacity:.55;cursor:default}
+.dm-swap{font-family:inherit;cursor:pointer;font-size:12px;line-height:18px;margin-left:6px;
+  padding:6px 12px;border-radius:9px;border:1px dashed var(--line2);background:transparent;color:var(--dim2)}
+.dm-swap:hover{color:var(--gold);border-color:rgba(255,176,46,.55)}
+.dm-swap:disabled{opacity:.55;cursor:default}
+
+@media(max-width:560px){
+  .slot-wrap{flex-direction:column;gap:14px}
+  .lever{width:60px;height:112px}
+  .lever-arm{height:76px}
+  .lever-knob{width:28px;height:28px;margin-left:-14px}
+  .reel{width:78px;height:78px}
+  .reel-strip .cell{height:78px}
+  .reel-strip .cell svg{width:56px;height:56px}
+  .roll-row,.roll-track{height:30px}
+  .roll-track span{font-size:15px;padding:0 11px}
+  .lucky span{font-size:14px;letter-spacing:0}
+  .lucky .lucky-paw{width:19px;height:19px}
+  .wheel-stage{width:300px;height:300px}
+}
+
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="author-tag">作者 · <b>久别</b></div>
+<span class="brand">三角洲行动 · 烽火地带</span>
+<h1>改枪码速查手册</h1>
+<p class="sub">共 <b id="cntGuns">34</b> 把枪械<span class="dot">·</span><b id="cntBuilds">99</b> 套改枪方案<span class="dot">·</span>按枪种分类，一键复制<span class="edited-flag" id="editedFlag">&#9679; 含自定义改动</span></p>
+<div class="searchbar"><input id="q" type="search" placeholder="搜索枪械名 / 方案 / 改枪码" autocomplete="off"><button type="button" onclick="var e=document.getElementById('q');e.value='';e.dispatchEvent(new Event('input'))">清空</button></div>
+<div class="actionbar"><button type="button" class="act act-mark" id="btnEdit"><span class="ic">&#9998;</span>编辑改枪码</button><button type="button" class="act act-gold" id="btnDraw"><span class="ic">&#127919;</span>抽奖</button></div>
+<nav class="pills" id="pills"></nav>
+<div class="howto"><h2>使用方法</h2><ol><li>进入游戏 &rarr; <b>军械库 / 改装台</b> &rarr; 选中对应枪械 &rarr; 进入<b>改装</b>界面</li><li>点击<b>导入改枪码</b>，粘贴下方整串代码（含枪械名），确认导入即可</li><li>「复制」= 复制单套方案；「复制全部」= 复制该枪全部方案（每行一个）</li><li>「<b>编辑改枪码</b>」= 直接在网页上增删改自己的码，改完保存在本机浏览器，可随时导出备份</li><li>若提示改枪码失效，通常是版本更新后配件调整，换同枪的其他方案即可</li></ol></div>
+</div></header>
+<main class="wrap" id="main"></main>
+<div class="empty" id="empty">没有匹配的改枪码，换个关键词或切回「全部」试试。</div>
+<footer><div class="wrap">三角洲行动 · 烽火地带 改枪码速查手册 &nbsp;|&nbsp; <span id="footStats">34 把枪械 · 99 套方案</span> &nbsp;|&nbsp; 整理日期 2026-10-06<br>作者：<span class="foot-author">久别</span> &nbsp;|&nbsp; 改枪码随版本更新可能失效，以游戏内实际导入结果为准</div></footer>
+<div class="toast" id="toast"></div>
+<div class="modal" id="editModal">
+<div class="modal-box">
+<div class="modal-head"><h2>编辑改枪码</h2><span class="hint">改动只保存在你本机浏览器里</span>
+<button type="button" class="modal-x" id="editClose" title="关闭">&#10005;</button></div>
+<div class="tabs">
+<button type="button" data-tab="form" class="on">逐条编辑</button>
+<button type="button" data-tab="bulk">批量粘贴</button>
+<button type="button" data-tab="data">备份 / 恢复</button>
+</div>
+<div class="modal-body">
+<div class="tabpane on" id="tabForm"></div>
+<div class="tabpane" id="tabBulk">
+<p class="ed-tip">把整理好的文本整段粘进来，格式和原始 txt 一样：<b>枪名</b>单独一行，下面每行是 <b>枪名-烽火地带-改枪码&nbsp;&nbsp;&nbsp;方案名</b>（中间的空格数量随意，没有方案名也行）。解析后可以「替换全部数据」或「合并到现有数据」。</p>
+<textarea class="bulk-area" id="bulkText" spellcheck="false" placeholder="M14射手步枪&#10;M14射手步枪-烽火地带-6LGJ78404MQ3QFJ82EAKL   90万高操控大弹匣&#10;M14射手步枪-烽火地带-6LGJ74G04MQ3QFJ82EAKL   90万+8据枪大弹匣&#10;&#10;M7战斗步枪&#10;M7战斗步枪-烽火地带-6LGJ9J004MQ3QFJ82EAKL     +8据枪满改"></textarea>
+<div class="ed-add" style="margin-top:12px">
+<button type="button" class="btn" id="btnBulkParse">解析预览</button>
+<button type="button" class="btn" id="btnBulkLoad">读入当前数据</button>
+<button type="button" class="btn primary" id="btnBulkReplace">替换全部数据</button>
+<button type="button" class="btn" id="btnBulkMerge">合并到现有数据</button>
+</div>
+<div class="bulk-res" id="bulkRes"></div>
+</div>
+<div class="tabpane" id="tabData">
+<p class="ed-tip">导出的 <b>JSON</b> 可以在任何设备导入回来；导出的 <b>txt</b> 就是原始格式，可以直接发给我重新生成整本手册。</p>
+<div class="dl-row">
+<button type="button" class="btn primary" id="btnExpJson">导出 JSON 备份</button>
+<button type="button" class="btn" id="btnExpTxt">导出 txt（原始格式）</button>
+<button type="button" class="btn" id="btnImport">导入备份文件</button>
+<input type="file" class="file-input" id="fileImport" accept=".json,.txt,application/json,text/plain">
+</div>
+<div class="dl-row">
+<button type="button" class="btn" id="btnResetDef">恢复原始数据</button>
+<button type="button" class="btn danger" id="btnClearAll">清空全部数据</button>
+</div>
+<p class="ed-tip">提示：网页每次打开都会读回你上次保存的改动。想看到后面更新的新码，点「恢复原始数据」即可回到本文件自带的版本。</p>
+</div>
+</div>
+<div class="modal-foot">
+<span class="ed-status" id="edStatus"></span>
+<button type="button" class="btn" id="btnDiscard">放弃修改</button>
+<button type="button" class="btn primary" id="btnSave">保存并应用</button>
+</div>
+</div>
+</div>
+
+<div class="modal" id="drawModal">
+<div class="modal-box" style="max-width:680px">
+<div class="modal-head"><h2>抽奖</h2><span class="hint">从改枪码里随机抽一套</span>
+<button type="button" class="modal-x" id="drawClose" title="关闭">&#10005;</button></div>
+<div class="modal-body">
+<div class="draw-modes" id="drawModes">
+  <span class="dm-label">抽奖类型</span>
+  <button type="button" class="dm-btn on" data-mode="wheel">幸运转盘</button>
+  <button type="button" class="dm-btn" data-mode="roller">幸运滚轮</button>
+  <button type="button" class="dm-btn" data-mode="slot">幸运老虎机</button>
+  <button type="button" class="dm-swap" id="btnSwapMode" title="切换到下一种抽奖类型">更换类型 &#8644;</button>
+</div>
+<div class="draw-meta" id="drawMeta"></div>
+
+<div class="draw-pane on" id="paneWheel">
+  <div class="lucky" id="luckyBar"></div>
+  <div class="wheel-stage" id="wheelStage">
+    <div class="tick-ring" id="tickRing" aria-hidden="true"></div>
+    <div class="paw-ring" id="pawRing" aria-hidden="true"></div>
+    <div class="wheel-pin"></div>
+    <canvas id="wheel" class="wheel-canvas"></canvas>
+    <div class="wheel-hub" id="wheelHub">抽奖</div>
+  </div>
+  <button type="button" class="draw-btn" id="btnSpin">开始抽奖</button>
+</div>
+
+<div class="draw-pane" id="paneRoller">
+  <div class="roller" id="roller">
+    <div class="roll-mask">
+      <div class="roll-row"><div class="roll-track" id="track0"></div></div>
+      <div class="roll-row"><div class="roll-track" id="track1"></div></div>
+      <div class="roll-row"><div class="roll-track" id="track2"></div></div>
+    </div>
+    <div class="roll-window"></div>
+  </div>
+  <button type="button" class="draw-btn" id="btnRollSpin">开始滚动</button>
+</div>
+
+<div class="draw-pane" id="paneSlot">
+  <div class="slot-wrap">
+    <div class="slot-box" id="slotBox">
+      <div class="reel"><div class="reel-strip" id="strip0"></div></div>
+      <div class="reel"><div class="reel-strip" id="strip1"></div></div>
+      <div class="reel"><div class="reel-strip" id="strip2"></div></div>
+    </div>
+    <button type="button" class="lever" id="lever" aria-label="摇杆">
+      <span class="lever-arm"><span class="lever-knob"></span><span class="lever-gloss"></span></span>
+      <span class="lever-base"></span><span class="lever-ring"></span>
+    </button>
+  </div>
+  <button type="button" class="draw-btn" id="btnSlotSpin">拉下摇杆</button>
+</div>
+
+<div class="draw-result" id="drawResult"></div>
+</div>
+</div>
+</div>
+
+<script>window.__DATA__={"version":"2026-10-06","author":"久别","groups":[{"id":"assault","name":"突击步枪","blurb":"全自动主力  中近距离压制","color":"#ff8a00","guns":[{"name":"AS Val突击步枪","builds":[{"note":"满改高操控","code":"AS Val突击步枪-烽火地带-6LGJEOO04MQ3QFJ82EAKL"},{"note":"高改好用","code":"AS Val突击步枪-烽火地带-6LGJF0004MQ3QFJ82EAKL"},{"note":"性价比","code":"AS Val突击步枪-烽火地带-6LGJF2G04MQ3QFJ82EAKL"}]},{"name":"K437突击步枪","builds":[{"note":"满改","code":"K437突击步枪-烽火地带-6LGJI6G04MQ3QFJ82EAKL"},{"note":"3.5倍","code":"K437突击步枪-烽火地带-6LGJILK04MQ3QFJ82EAKL"},{"note":"性价比","code":"K437突击步枪-烽火地带-6LFU2QG04MQ3QFJ82EAKL"}]},{"name":"MK47突击步枪","builds":[{"note":"短管无后座","code":"MK47突击步枪-烽火地带-6LFU41C04MQ3QFJ82EAKL"},{"note":"长枪管","code":"MK47突击步枪-烽火地带-6LFU4E804MQ3QFJ82EAKL"},{"note":"短管高操控","code":"MK47突击步枪-烽火地带-6LGJHK004MQ3QFJ82EAKL"},{"note":"短管性价比","code":"MK47突击步枪-烽火地带-6LGJHLS04MQ3QFJ82EAKL"}]},{"name":"MDR突击步枪","builds":[{"note":"轻语二倍满改","code":"MDR突击步枪-烽火地带-6LGJH9O04MQ3QFJ82EAKL"},{"note":"+8据枪高操控","code":"MDR突击步枪-烽火地带-6LGJFNC04MQ3QFJ82EAKL"},{"note":"性价比","code":"MDR突击步枪-烽火地带-6LGJGGG04MQ3QFJ82EAKL"}]},{"name":"AKM突击步枪","builds":[{"note":"腰射AK加强版","code":"AKM突击步枪-烽火地带-6LGK7NO04MQ3QFJ82EAKL"},{"note":"腰射AK性价比","code":"AKM突击步枪-烽火地带-6LGK7SK04MQ3QFJ82EAKL"}]},{"name":"RM277突击步枪","builds":[{"note":"性价比好用","code":"RM277突击步枪-烽火地带-6KJ5EH804MQ3QFJ82EAKL"},{"note":"超级性价比","code":"RM277突击步枪-烽火地带-6LGJR0O04MQ3QFJ82EAKL"}]},{"name":"KC17突击步枪","builds":[{"note":"性价比","code":"KC17突击步枪-烽火地带-6KJ5GRK04MQ3QFJ82EAKL"},{"note":"一体枪管性价比","code":"KC17突击步枪-烽火地带-6LGJQN404MQ3QFJ82EAKL"}]},{"name":"AR57突击步枪","builds":[{"note":"开镜腰射双修  满改","code":"AR57突击步枪-烽火地带-6LGKJSK04MQ3QFJ82EAKL"},{"note":"开镜性价比","code":"AR57突击步枪-烽火地带-6LGKIOC04MQ3QFJ82EAKL"},{"note":"腰射","code":"AR57突击步枪-烽火地带-6LGKJ0K04MQ3QFJ82EAKL"}]},{"name":"AUG突击步枪","builds":[{"note":"一体枪管性价比","code":"AUG突击步枪-烽火地带-6LGK3N804MQ3QFJ82EAKL"},{"note":"好用高操控","code":"AUG突击步枪-烽火地带-6LGK4MK04MQ3QFJ82EAKL"}]},{"name":"AK-12突击步枪","builds":[{"note":"改良版","code":"AK-12突击步枪-烽火地带-6LGJODO04MQ3QFJ82EAKL"},{"note":"超级性价比","code":"AK-12突击步枪-烽火地带-6LGJOJ004MQ3QFJ82EAKL"},{"note":"性价比升级版","code":"AK-12突击步枪-烽火地带-6LGJOKC04MQ3QFJ82EAKL"}]},{"name":"PTR-32突击步枪","builds":[{"note":"超级性价比","code":"PTR-32突击步枪-烽火地带-6KJ5E6G04MQ3QFJ82EAKL"},{"note":"性价比加强版","code":"PTR-32突击步枪-烽火地带-6KEPI8G04MQ3QFJ82EAKL"}]},{"name":"M4A1突击步枪","builds":[{"note":"性价比","code":"M4A1突击步枪-烽火地带-6LGJPG804MQ3QFJ82EAKL"},{"note":"性价比升级版","code":"M4A1突击步枪-烽火地带-6LGJPH004MQ3QFJ82EAKL"}]},{"name":"MCX LT突击步枪","builds":[{"note":"开镜+8据枪满改","code":"MCX LT突击步枪-烽火地带-6LGUBVK04MQ3QFJ82EAKL"},{"note":"焰魂枪管+8据枪满改","code":"MCX LT突击步枪-烽火地带-6LGUCA804MQ3QFJ82EAKL"},{"note":"焰魂枪管性价比","code":"MCX LT突击步枪-烽火地带-6LGUCEG04MQ3QFJ82EAKL"},{"note":"开镜性价比","code":"MCX LT突击步枪-烽火地带-6LGUCFS04MQ3QFJ82EAKL"},{"note":"双修","code":"MCX LT突击步枪-烽火地带-6LGUCGG04MQ3QFJ82EAKL"}]},{"name":"K416突击步枪","builds":[{"note":"满改","code":"K416突击步枪-烽火地带-6LGUG2G04MQ3QFJ82EAKL"},{"note":"性价比","code":"K416突击步枪-烽火地带-6LGUFR004MQ3QFJ82EAKL"},{"note":"双修","code":"K416突击步枪-烽火地带-6LGUFRK04MQ3QFJ82EAKL"}]}]},{"id":"smg","name":"冲锋枪","blurb":"高射速  近战突脸","color":"#2ee6a8","guns":[{"name":"MK4冲锋枪","builds":[{"note":"双修三连发","code":"MK4冲锋枪-烽火地带-6LGUIOG04MQ3QFJ82EAKL"},{"note":"腰射三连发双托","code":"MK4冲锋枪-烽火地带-6LGJJ0804MQ3QFJ82EAKL"},{"note":"+8据枪全自动腰射开镜双修","code":"MK4冲锋枪-烽火地带-6LGJJE804MQ3QFJ82EAKL"},{"note":"开镜三连发","code":"MK4冲锋枪-烽火地带-6LGUIQG04MQ3QFJ82EAKL"},{"note":"开镜三连发性价比","code":"MK4冲锋枪-烽火地带-6LGUIRO04MQ3QFJ82EAKL"}]},{"name":"MP7冲锋枪","builds":[{"note":"月影开镜腰射双修   满改","code":"MP7冲锋枪-烽火地带-6LGK9L804MQ3QFJ82EAKL"},{"note":"月影腰射性价比","code":"MP7冲锋枪-烽火地带-6LGK9R404MQ3QFJ82EAKL"},{"note":"月影开镜","code":"MP7冲锋枪-烽火地带-6LGKCFC04MQ3QFJ82EAKL"},{"note":"开镜性价比","code":"MP7冲锋枪-烽火地带-6LGKC2K04MQ3QFJ82EAKL"}]},{"name":"汤姆逊冲锋枪","builds":[{"note":"加伤枪管开镜腰射双修  满改","code":"汤姆逊冲锋枪-烽火地带-6LGJKPC04MQ3QFJ82EAKL"},{"note":"性价比满腰射","code":"汤姆逊冲锋枪-烽火地带-6LGJL1S04MQ3QFJ82EAKL"},{"note":"射程枪管性价比满腰射","code":"汤姆逊冲锋枪-烽火地带-6LGJL4O04MQ3QFJ82EAKL"}]},{"name":"SMG-45冲锋枪","builds":[{"note":"跑打稳定版","code":"SMG-45冲锋枪-烽火地带-6K6M63S04MQ3QFJ82EAKL"},{"note":"升级版","code":"SMG-45冲锋枪-烽火地带-6JT8MH004MQ3QFJ82EAKL"},{"note":"弹匣镭射升级版","code":"SMG-45冲锋枪-烽火地带-6KH37OC04MQ3QFJ82EAKL"}]}]},{"id":"battle","name":"战斗步枪","blurb":"大口径  中距离压制","color":"#ff5f6d","guns":[{"name":"M7战斗步枪","builds":[{"note":"+8据枪满改","code":"M7战斗步枪-烽火地带-6LGJ9J004MQ3QFJ82EAKL"},{"note":"二倍（新子弹）","code":"M7战斗步枪-烽火地带-6LGJ9Q004MQ3QFJ82EAKL"},{"note":"性价比","code":"M7战斗步枪-烽火地带-6LGJCF804MQ3QFJ82EAKL"},{"note":"性价比+8据枪升级版","code":"M7战斗步枪-烽火地带-6LGJCGC04MQ3QFJ82EAKL"}]},{"name":"ASh-12战斗步枪","builds":[{"note":"开镜满改","code":"ASh-12战斗步枪-烽火地带-6LGK6DC04MQ3QFJ82EAKL"},{"note":"无镜","code":"ASh-12战斗步枪-烽火地带-6LGK7A804MQ3QFJ82EAKL"},{"note":"无镜高操控","code":"ASh-12战斗步枪-烽火地带-6LGK5LG04MQ3QFJ82EAKL"}]},{"name":"SCAR-H战斗步枪","builds":[{"note":"满改","code":"SCAR-H战斗步枪-烽火地带-6LGJS3004MQ3QFJ82EAKL"},{"note":"性价比","code":"SCAR-H战斗步枪-烽火地带-6LGJS9804MQ3QFJ82EAKL"}]}]},{"id":"marksman","name":"射手步枪","blurb":"半自动  中远距离点射","color":"#4aa8ff","guns":[{"name":"M14射手步枪","builds":[{"note":"90万高操控大弹匣","code":"M14射手步枪-烽火地带-6LGJ78404MQ3QFJ82EAKL"},{"note":"90万+8据枪大弹匣","code":"M14射手步枪-烽火地带-6LGJ74G04MQ3QFJ82EAKL"},{"note":"双垂直长枪管","code":"M14射手步枪-烽火地带-6LGJ5F804MQ3QFJ82EAKL"},{"note":"性价比","code":"M14射手步枪-烽火地带-6LGJ4C804MQ3QFJ82EAKL"}]},{"name":"SVCH精确射手步枪","builds":[{"note":"双垂直好压","code":"SVCH精确射手步枪-烽火地带-6LGJU5404MQ3QFJ82EAKL"},{"note":"+8据枪37倍","code":"SVCH精确射手步枪-烽火地带-6LGJU6804MQ3QFJ82EAKL"},{"note":"性价比","code":"SVCH精确射手步枪-烽火地带-6LGJUTS04MQ3QFJ82EAKL"}]},{"name":"SR-25射手步枪","builds":[{"note":"16据枪  堵桥","code":"SR-25射手步枪-烽火地带-6LGKE1804MQ3QFJ82EAKL"},{"note":"短管 跑狙","code":"SR-25射手步枪-烽火地带-6LGKE6S04MQ3QFJ82EAKL"}]},{"name":"PSG-1射手步枪","builds":[{"note":"+8据枪 堵桥","code":"PSG-1射手步枪-烽火地带-6LGKG0K04MQ3QFJ82EAKL"},{"note":"跑狙","code":"PSG-1射手步枪-烽火地带-6LGK0AK04MQ3QFJ82EAKL"}]},{"name":"SKS射手步枪","builds":[{"note":"跑狙","code":"SKS射手步枪-烽火地带-6LGJMBO04MQ3QFJ82EAKL"},{"note":"升级版","code":"SKS射手步枪-烽火地带-6LGJR6404MQ3QFJ82EAKL"}]}]},{"id":"sniper","name":"狙击步枪","blurb":"一击必杀  远距离","color":"#a86bff","guns":[{"name":"SVD狙击步枪","builds":[{"note":"连发M700","code":"SVD狙击步枪-烽火地带-6LGK39S04MQ3QFJ82EAKL"},{"note":"性价比连发M700","code":"SVD狙击步枪-烽火地带-6LGK2MK04MQ3QFJ82EAKL"},{"note":"跑狙","code":"SVD狙击步枪-烽火地带-6LGK2L004MQ3QFJ82EAKL"}]},{"name":"AWM狙击步枪","builds":[{"note":"满初速 满改","code":"AWM狙击步枪-烽火地带-6LGTQUK04MQ3QFJ82EAKL"},{"note":"无枪管","code":"AWM狙击步枪-烽火地带-6LGTQVO04MQ3QFJ82EAKL"}]},{"name":"M700狙击步枪","builds":[{"note":"双枪一体消音性价比","code":"M700狙击步枪-烽火地带-6LGTPKO04MQ3QFJ82EAKL"},{"note":"长管高操速","code":"M700狙击步枪-烽火地带-6LGTPMG04MQ3QFJ82EAKL"},{"note":"旋风套件","code":"M700狙击步枪-烽火地带-6LGTPOO04MQ3QFJ82EAKL"}]}]},{"id":"lmg","name":"机枪","blurb":"大弹容  持续火力压制","color":"#22c1dc","guns":[{"name":"QJB201轻机枪","builds":[{"note":"双修短管","code":"QJB201轻机枪-烽火地带-6LGU10404MQ3QFJ82EAKL"},{"note":"+8据枪高操控","code":"QJB201轻机枪-烽火地带-6LGU13404MQ3QFJ82EAKL"},{"note":"双修性价比","code":"QJB201轻机枪-烽火地带-6LGU21804MQ3QFJ82EAKL"},{"note":"开镜性价比","code":"QJB201轻机枪-烽火地带-6LGU2K004MQ3QFJ82EAKL"}]},{"name":"PKM通用机枪","builds":[{"note":"开镜满改","code":"PKM通用机枪-烽火地带-6LGU5L404MQ3QFJ82EAKL"},{"note":"双修","code":"PKM通用机枪-烽火地带-6LGU5M804MQ3QFJ82EAKL"},{"note":"双修性价比","code":"PKM通用机枪-烽火地带-6LGU3JS04MQ3QFJ82EAKL"},{"note":"开镜长管性价比","code":"PKM通用机枪-烽火地带-6LGU6J004MQ3QFJ82EAKL"},{"note":"开镜短管性价比","code":"PKM通用机枪-烽火地带-6LGU7AC04MQ3QFJ82EAKL"}]}]},{"id":"pistol","name":"手枪","blurb":"副武器  应急补枪","color":"#f0a94c","guns":[{"name":"G18","builds":[{"note":"修脚无镜","code":"G18-烽火地带-6LGTT3C04MQ3QFJ82EAKL"},{"note":"高操控","code":"G18-烽火地带-6LGTT6804MQ3QFJ82EAKL"}]}]},{"id":"special","name":"特殊武器","blurb":"另类玩法  出奇制胜","color":"#ffd166","guns":[{"name":"复合弓","builds":[{"note":"满改瞄准","code":"复合弓-烽火地带-6KJ5VB404MQ3QFJ82EAKL"},{"note":"腰射瞄准皆可","code":"复合弓-烽火地带-6KJ5T2404MQ3QFJ82EAKL"},{"note":"开镜性价比","code":"复合弓-烽火地带-6KJ5VF804MQ3QFJ82EAKL"}]},{"name":"杠杆式步枪","builds":[{"note":"99腰射镭指性价比","code":"杠杆式步枪-烽火地带-6KJ5M1O04MQ3QFJ82EAKL"}]}]}]};</script>
+<script>
+/* ============================================================
+   三角洲行动  烽火地带 改枪码速查手册    交互层（数据驱动）
+   作者：久别
+   ============================================================ */
+(function () {
+'use strict';
+
+var LS_KEY = 'dfgcode.data.v2';
+var DEFAULT_DATA = window.__DATA__;
+
+function $(s, r) { return (r || document).querySelector(s); }
+function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return c === '&' ? '&amp;' : c === '<' ? '&lt;' : c === '>' ? '&gt;' : c === '"' ? '&quot;' : '&#39;';
+  });
+}
+function clone(o) { return JSON.parse(JSON.stringify(o)); }
+function norm(s) { return String(s == null ? '' : s).replace(/\s+/g, ''); }
+function rgba(hex, a) {
+  var m = /^#?([0-9a-f]{6})$/i.exec(String(hex || '').trim());
+  if (!m) { return 'rgba(255,176,46,' + a + ')'; }
+  var n = parseInt(m[1], 16);
+  return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+}
+var toastTimer;
+function toast(t) {
+  var el = $('#toast'); if (!el) { return; }
+  el.textContent = t; el.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { el.classList.remove('on'); }, 1600);
+}
+
+/* ---------------- 数据层 ---------------- */
+var state = { data: null, visible: 0 };
+var PALETTE = ['#ff8a00', '#2ee6a8', '#ff5f6d', '#4aa8ff', '#a86bff', '#22c1dc', '#f0a94c', '#ffd166'];
+
+function validData(d) { return !!(d && d.groups && d.groups.length); }
+function loadData() {
+  var d = null;
+  try { var s = localStorage.getItem(LS_KEY); if (s) { d = JSON.parse(s); } } catch (e) { d = null; }
+  if (!validData(d)) { d = clone(DEFAULT_DATA); }
+  return d;
+}
+function persist(d) {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(d)); return true; } catch (e) { return false; }
+}
+function hasCustom() {
+  try { var s = localStorage.getItem(LS_KEY); return !!(s && validData(JSON.parse(s))); } catch (e) { return false; }
+}
+function stats(d) {
+  var g = 0, b = 0;
+  (d.groups || []).forEach(function (c) {
+    g += (c.guns || []).length;
+    (c.guns || []).forEach(function (x) { b += (x.builds || []).length; });
+  });
+  return { guns: g, builds: b };
+}
+function countBuilds(gun) { return (gun.builds || []).length; }
+
+/* ---------------- 渲染 ---------------- */
+function renderPills() {
+  var d = state.data, s = stats(d), html = '';
+  html += '<button class="pill active" data-cat="all">全部 <span class="n">' + s.guns + '</span></button>';
+  (d.groups || []).forEach(function (c) {
+    if (!(c.guns || []).length) { return; }
+    html += '<button class="pill" data-cat="' + esc(c.id) + '" style="--acc:' + esc(c.color) + '">' +
+      esc(c.name) + ' <span class="n">' + c.guns.length + ' 把</span></button>';
+  });
+  $('#pills').innerHTML = html;
+}
+
+function renderCards() {
+  var d = state.data, idx = 0, html = '';
+  (d.groups || []).forEach(function (c) {
+    if (!(c.guns || []).length) { return; }
+    var nb = 0;
+    c.guns.forEach(function (g) { nb += countBuilds(g); });
+    html += '<section class="cat" data-cat="' + esc(c.id) + '" style="--acc:' + esc(c.color) +
+      ';--a1:' + rgba(c.color, 0.12) + ';--a2:' + rgba(c.color, 0.38) + ';--a3:' + rgba(c.color, 0.55) + '">';
+    html += '<div class="cat-head"><span class="cat-bar"></span><h2>' + esc(c.name) + '</h2>' +
+      '<p class="cat-blurb">' + esc(c.blurb || '') + '</p>' +
+      '<div class="cat-meta"><span class="badge">' + c.guns.length + ' 把枪械</span>' +
+      '<span class="badge">' + nb + ' 套方案</span></div></div>';
+    html += '<div class="grid">';
+    c.guns.forEach(function (g) {
+      idx += 1;
+      var key = norm([g.name].concat((g.builds || []).map(function (b) { return b.note + ' ' + b.code; })).join(' ')).toLowerCase();
+      html += '<article class="card" data-search="' + esc(key) + '">';
+      html += '<div class="card-head"><span class="idx">' + (idx < 10 ? '0' + idx : idx) + '</span>' +
+        '<h3>' + esc(g.name) + '</h3><span class="cnt">' + countBuilds(g) + ' 套</span>' +
+        '<button type="button" class="copy-all">复制全部</button></div>';
+      html += '<ul class="builds">';
+      (g.builds || []).forEach(function (b, i) {
+        html += '<li class="build"><div class="build-top"><span class="bnum">' + (i + 1) + '</span>' +
+          '<span class="bname">' + esc(b.note || ('方案 ' + (i + 1))) + '</span></div>' +
+          '<div class="code-row"><code class="code">' + esc(b.code) + '</code>' +
+          '<button type="button" class="copy" data-code="' + esc(b.code) + '">复制</button></div></li>';
+      });
+      html += '</ul></article>';
+    });
+    html += '</div></section>';
+  });
+  if (!html) {
+    html = '<div class="ed-empty" style="text-align:center;padding:40px 0">还没有任何改枪码，点击上方「编辑改枪码」添加。</div>';
+  }
+  $('#main').innerHTML = html;
+}
+
+function renderCounts() {
+  var s = stats(state.data);
+  $('#cntGuns').textContent = s.guns;
+  $('#cntBuilds').textContent = s.builds;
+  var f = $('#footStats');
+  if (f) { f.textContent = s.guns + ' 把枪械  ' + s.builds + ' 套方案'; }
+  $('#editedFlag').classList.toggle('on', hasCustom());
+}
+
+function renderAll() {
+  renderPills();
+  renderCards();
+  renderCounts();
+  applyFilter();
+}
+
+/* ---------------- 筛选 / 复制 ---------------- */
+function curCat() { var a = $('.pill.active'); return a ? a.getAttribute('data-cat') : 'all'; }
+
+function applyFilter() {
+  var term = ($('#q').value || '').trim().toLowerCase();
+  var cat = curCat(), total = 0;
+  $$('.cat').forEach(function (sec) {
+    var shown = 0;
+    $$('.card', sec).forEach(function (card) {
+      var ok = (cat === 'all' || sec.getAttribute('data-cat') === cat) &&
+        (!term || card.getAttribute('data-search').indexOf(term) !== -1);
+      card.style.display = ok ? '' : 'none';
+      if (ok) { shown += 1; }
+    });
+    sec.style.display = shown ? '' : 'none';
+    total += shown;
+  });
+  var e = $('#empty');
+  if (e) { e.classList.toggle('on', total === 0); }
+  state.visible = total;
+}
+
+function fbCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.setAttribute('readonly', '');
+  ta.style.position = 'fixed'; ta.style.top = '-1000px';
+  document.body.appendChild(ta);
+  ta.select(); ta.setSelectionRange(0, ta.value.length);
+  var ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+  document.body.removeChild(ta);
+  return ok;
+}
+function copyText(text, btn, restore, quiet) {
+  var done = function () {
+    if (btn) {
+      btn.classList.add('ok'); btn.textContent = '已复制 ';
+      clearTimeout(btn._t);
+      btn._t = setTimeout(function () { btn.classList.remove('ok'); btn.textContent = restore; }, 1300);
+    }
+    if (!quiet) { toast('已复制到剪贴板'); }
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () {
+      if (fbCopy(text)) { done(); } else { toast('复制失败，请手动选中'); }
+    });
+  } else if (fbCopy(text)) { done(); } else { toast('复制失败，请手动选中'); }
+}
+
+/* ---------------- 当前奖池（跟随页面筛选） ---------------- */
+function currentPool() {
+  var term = ($('#q').value || '').trim().toLowerCase();
+  var cat = curCat(), pool = [];
+  (state.data.groups || []).forEach(function (c, ci) {
+    if (cat !== 'all' && c.id !== cat) { return; }
+    (c.guns || []).forEach(function (g, gi) {
+      var hit = !term || norm(g.name + ' ' + (g.builds || []).map(function (b) { return b.note + ' ' + b.code; }).join(' ')).toLowerCase().indexOf(term) !== -1;
+      if (!hit) { return; }
+      (g.builds || []).forEach(function (b) {
+        pool.push({ gun: g.name, note: b.note, code: b.code, gi: ci * 1000 + gi, color: c.color });
+      });
+    });
+  });
+  return pool;
+}
+
+window.__APP__ = { state: state, loadData: loadData, persist: persist, renderAll: renderAll,
+  applyFilter: applyFilter, currentPool: currentPool, toast: toast, esc: esc, clone: clone,
+  norm: norm, stats: stats, rgba: rgba, copyText: copyText, PALETTE: PALETTE, LS_KEY: LS_KEY,
+  DEFAULT_DATA: DEFAULT_DATA, hasCustom: hasCustom };
+})();
+
+/* ---------- 编辑器：逐条编辑 ---------- */
+(function () {
+'use strict';
+var A = window.__APP__;
+var state = A.state;
+var editData = null, dirty = false;
+
+function status(t) { var el = document.getElementById('edStatus'); if (el) { el.textContent = t; } }
+function markDirty() { if (!dirty) { dirty = true; status(' 有未保存的修改'); } }
+function setDirty(v) { dirty = v; }
+
+function openEditor() {
+  editData = A.clone(state.data);
+  setDirty(false);
+  renderEditor();
+  status('改动会保存在本机浏览器中（不上传）');
+  document.getElementById('editModal').classList.add('on');
+  if (window.__INIT__ && window.__INIT__.switchTab) { window.__INIT__.switchTab('form'); }
+}
+function closeEditor() {
+  document.getElementById('editModal').classList.remove('on');
+  editData = null;
+}
+function discardEditor() {
+  state.data = A.loadData();
+  A.renderAll();
+  closeEditor();
+  A.toast('已放弃修改');
+}
+
+function esc(s) { return A.esc(s); }
+
+function renderEditor() {
+  if (!editData) { return; }
+  var html = '<p class="ed-tip">在这里直接增删改：<b>分类名 / 枪械名 / 方案名 / 改枪码</b>都可以改。' +
+    '改完点右下角「保存并应用」。改枪码可以只填 22 位码（例如 <b>6LGJI6G04MQ3QFJ82EAKL</b>），' +
+    '失焦后会自动补上「枪名-烽火地带-」前缀。</p>';
+  (editData.groups || []).forEach(function (c, ci) {
+    html += '<div class="ed-cat">';
+    html += '<div class="ed-cat-head"><span class="cat-dot" style="background:' + esc(c.color) + '"></span>' +
+      '<input class="ed name" data-lv="cat" data-ci="' + ci + '" value="' + esc(c.name) + '" placeholder="分类名（如 突击步枪）">' +
+      '<button class="btn sm" data-act="add-gun" data-ci="' + ci + '">+ 添加枪械</button>' +
+      '<button class="btn sm danger" data-act="del-cat" data-ci="' + ci + '">删除分类</button></div>';
+    (c.guns || []).forEach(function (g, gi) {
+      html += '<div class="ed-gun"><div class="ed-gun-head">' +
+        '<input class="ed name" data-lv="gun" data-ci="' + ci + '" data-gi="' + gi + '" value="' + esc(g.name) + '" placeholder="枪械名">' +
+        '<span class="badge">' + (g.builds || []).length + ' 套</span>' +
+        '<button class="btn sm" data-act="add-build" data-ci="' + ci + '" data-gi="' + gi + '">+ 添加方案</button>' +
+        '<button class="btn sm danger" data-act="del-gun" data-ci="' + ci + '" data-gi="' + gi + '">删除枪械</button></div>';
+      (g.builds || []).forEach(function (b, bi) {
+        html += '<div class="ed-build-row">' +
+          '<input class="ed note" data-lv="note" data-ci="' + ci + '" data-gi="' + gi + '" data-bi="' + bi + '" value="' + esc(b.note) + '" placeholder="方案名（如 性价比）">' +
+          '<input class="ed code" data-lv="code" data-ci="' + ci + '" data-gi="' + gi + '" data-bi="' + bi + '" value="' + esc(b.code) + '" placeholder="枪名-烽火地带-改枪码" spellcheck="false">' +
+          '<button class="ed-del" data-act="del-build" data-ci="' + ci + '" data-gi="' + gi + '" data-bi="' + bi + '" title="删除这条方案"></button></div>';
+      });
+      if (!(g.builds || []).length) { html += '<div class="ed-empty">这把枪还没有方案，点「+ 添加方案」。</div>'; }
+      html += '</div>';
+    });
+    if (!(c.guns || []).length) { html += '<div class="ed-gun"><div class="ed-empty">该分类下还没有枪械，点「+ 添加枪械」。</div></div>'; }
+    html += '</div>';
+  });
+  if (!(editData.groups || []).length) {
+    html += '<div class="ed-empty">数据是空的。可以到「批量粘贴」标签页整段导入，或点下面的按钮新建一个分类。</div>';
+  }
+  html += '<div class="ed-add"><button class="btn" data-act="add-cat">+ 新建分类</button></div>';
+  document.getElementById('tabForm').innerHTML = html;
+}
+
+function smartCode(raw, gunName) {
+  var v = String(raw == null ? '' : raw).trim();
+  if (!v) { return v; }
+  if (v.indexOf('-烽火地带-') !== -1) { return v; }
+  if (/^[0-9A-Za-z]{8,}$/.test(v) && gunName) { return gunName + '-烽火地带-' + v; }
+  return v;
+}
+
+function bindForm() {
+  var root = document.getElementById('tabForm');
+  root.addEventListener('input', function (e) {
+    var el = e.target;
+    if (!el || !el.classList || !el.classList.contains('ed') || !editData) { return; }
+    var lv = el.getAttribute('data-lv');
+    var ci = parseInt(el.getAttribute('data-ci'), 10);
+    var gi = parseInt(el.getAttribute('data-gi'), 10);
+    var bi = parseInt(el.getAttribute('data-bi'), 10);
+    var c = editData.groups[ci];
+    if (!c) { return; }
+    if (lv === 'cat') { c.name = el.value; }
+    else if (lv === 'gun') { if (c.guns[gi]) { c.guns[gi].name = el.value; } }
+    else if (lv === 'note') { if (c.guns[gi] && c.guns[gi].builds[bi]) { c.guns[gi].builds[bi].note = el.value; } }
+    else if (lv === 'code') { if (c.guns[gi] && c.guns[gi].builds[bi]) { c.guns[gi].builds[bi].code = el.value.trim(); } }
+    markDirty();
+  });
+  root.addEventListener('change', function (e) {
+    var el = e.target;
+    if (!el || !el.classList || !el.classList.contains('code') || !editData) { return; }
+    var lv = el.getAttribute('data-lv');
+    if (lv !== 'code') { return; }
+    var c = editData.groups[parseInt(el.getAttribute('data-ci'), 10)];
+    if (!c) { return; }
+    var g = c.guns[parseInt(el.getAttribute('data-gi'), 10)];
+    var b = g && g.builds[parseInt(el.getAttribute('data-bi'), 10)];
+    if (!b) { return; }
+    var fixed = smartCode(el.value, g.name);
+    if (fixed !== el.value) { b.code = fixed; el.value = fixed; markDirty(); }
+  });
+  root.addEventListener('click', function (e) {
+    var btn = e.target && e.target.closest ? e.target.closest('button[data-act]') : null;
+    if (!btn || !editData) { return; }
+    var act = btn.getAttribute('data-act');
+    var ci = parseInt(btn.getAttribute('data-ci'), 10);
+    var gi = parseInt(btn.getAttribute('data-gi'), 10);
+    var bi = parseInt(btn.getAttribute('data-bi'), 10);
+    var c = editData.groups[ci];
+    if (act === 'add-cat') {
+      editData.groups.push({ id: 'cat' + Date.now().toString(36), name: '新分类',
+        blurb: '自定义分类', color: A.PALETTE[editData.groups.length % A.PALETTE.length], guns: [] });
+      markDirty(); renderEditor(); return;
+    }
+    if (!c) { return; }
+    if (act === 'add-gun') { c.guns.push({ name: '新枪械', builds: [{ note: '满改', code: '' }] }); markDirty(); renderEditor(); return; }
+    if (act === 'add-build') { if (c.guns[gi]) { c.guns[gi].builds.push({ note: '新方案', code: '' }); markDirty(); renderEditor(); } return; }
+    if (act === 'del-cat') {
+      if (window.confirm('删除分类「' + c.name + '」及其下全部 ' + (c.guns || []).length + ' 把枪械？')) {
+        editData.groups.splice(ci, 1); markDirty(); renderEditor();
+      }
+      return;
+    }
+    if (act === 'del-gun') {
+      if (c.guns[gi] && window.confirm('删除「' + c.guns[gi].name + '」及其 ' + (c.guns[gi].builds || []).length + ' 套方案？')) {
+        c.guns.splice(gi, 1); markDirty(); renderEditor();
+      }
+      return;
+    }
+    if (act === 'del-build') {
+      if (c.guns[gi]) { c.guns[gi].builds.splice(bi, 1); markDirty(); renderEditor(); }
+      return;
+    }
+  });
+}
+
+function validate(d) {
+  var bad = [];
+  (d.groups || []).forEach(function (c) {
+    (c.guns || []).forEach(function (g) {
+      (g.builds || []).forEach(function (b, i) {
+        var code = String(b.code || '').trim();
+        if (!code) { bad.push('「' + g.name + '」第 ' + (i + 1) + ' 套方案还没填改枪码'); }
+        else if (code.indexOf('-烽火地带-') === -1) { bad.push('「' + g.name + '」第 ' + (i + 1) + ' 套：' + code + ' 缺少「-烽火地带-」部分'); }
+        else {
+          var tail = code.split('-烽火地带-')[1] || '';
+          if (!/^[0-9A-Za-z]{6,}$/.test(tail.trim())) { bad.push('「' + g.name + '」第 ' + (i + 1) + ' 套：改枪码尾部格式可疑（' + tail + '）'); }
+        }
+      });
+    });
+  });
+  return bad;
+}
+
+function saveEditor() {
+  if (!editData) { return; }
+  var bad = validate(editData);
+  if (bad.length) {
+    window.alert('还有 ' + bad.length + ' 处需要修正：\n\n' + bad.slice(0, 10).join('\n') + (bad.length > 10 ? '\n' : ''));
+    return;
+  }
+  var d = A.clone(editData);
+  d.version = new Date().toISOString().slice(0, 10);
+  var ok = A.persist(d);
+  state.data = d;
+  A.renderAll();
+  closeEditor();
+  if (ok) { A.toast('已保存，页面已更新'); } else { A.toast('已应用，但浏览器不允许本地存储'); }
+}
+
+window.__EDITOR__ = { open: openEditor, close: closeEditor, discard: discardEditor,
+  save: saveEditor, bind: bindForm, getData: function () { return editData; },
+  setData: function (d) { editData = d; markDirty(); renderEditor(); },
+  render: function () { renderEditor(); }, markDirty: markDirty, isDirty: function () { return dirty; } };
+})();
+
+/* ---------- 批量粘贴导入 / 备份恢复 ---------- */
+(function () {
+'use strict';
+var A = window.__APP__;
+var state = A.state, parsed = null;
+
+var CATS = [
+  { id: 'assault', name: '突击步枪', blurb: '全自动主力  中近距离压制', color: '#ff8a00' },
+  { id: 'smg', name: '冲锋枪', blurb: '高射速  近战突脸', color: '#2ee6a8' },
+  { id: 'battle', name: '战斗步枪', blurb: '大口径  中距离压制', color: '#ff5f6d' },
+  { id: 'marksman', name: '射手步枪', blurb: '半自动  中远距离点射', color: '#4aa8ff' },
+  { id: 'sniper', name: '狙击步枪', blurb: '一击必杀  远距离', color: '#a86bff' },
+  { id: 'lmg', name: '机枪', blurb: '大弹容  持续火力压制', color: '#22c1dc' },
+  { id: 'pistol', name: '手枪', blurb: '副武器  应急补枪', color: '#f0a94c' },
+  { id: 'special', name: '特殊武器', blurb: '另类玩法  出奇制胜', color: '#ffd166' }
+];
+
+function classify(name) {
+  if (name.indexOf('冲锋枪') !== -1) { return 'smg'; }
+  if (name.indexOf('战斗步枪') !== -1) { return 'battle'; }
+  if (name.indexOf('射手步枪') !== -1) { return 'marksman'; }
+  if (name.indexOf('狙击步枪') !== -1) { return 'sniper'; }
+  if (name.indexOf('机枪') !== -1) { return 'lmg'; }
+  if (name.indexOf('突击步枪') !== -1) { return 'assault'; }
+  if (/^G1[0-9]/i.test(name)) { return 'pistol'; }
+  if (name.indexOf('弓') !== -1 || name.indexOf('杠杆') !== -1) { return 'special'; }
+  return 'assault';
+}
+
+function parseText(txt) {
+  var SEP = '-烽火地带-';
+  var re = /^(.*?)-烽火地带-([0-9A-Za-z]+)\s*(.*)$/;
+  var guns = [], by = {};
+  String(txt || '').split(/\r?\n/).forEach(function (line) {
+    line = line.trim();
+    if (!line) { return; }
+    var m = re.exec(line);
+    if (!m) { return; }
+    var prefix = m[1].trim(), code = m[2].trim(), note = m[3].trim();
+    var k = A.norm(prefix);
+    if (!by[k]) { by[k] = { name: prefix, builds: [] }; guns.push(by[k]); }
+    by[k].builds.push({ note: note, code: prefix + SEP + code });
+  });
+  return guns;
+}
+
+function groupByCat(guns) {
+  var out = [];
+  CATS.forEach(function (c) {
+    var gs = guns.filter(function (g) { return classify(g.name) === c.id; });
+    if (!gs.length) { return; }
+    out.push({ id: c.id, name: c.name, blurb: c.blurb, color: c.color,
+      guns: gs.map(function (g) { return { name: g.name, builds: g.builds }; }) });
+  });
+  return out;
+}
+
+function countOf(groups) {
+  var g = 0, b = 0;
+  (groups || []).forEach(function (c) {
+    g += (c.guns || []).length;
+    (c.guns || []).forEach(function (x) { b += (x.builds || []).length; });
+  });
+  return { guns: g, builds: b };
+}
+
+function setRes(html) { var el = document.getElementById('bulkRes'); if (el) { el.innerHTML = html; } }
+
+function doParse() {
+  var txt = document.getElementById('bulkText').value;
+  parsed = parseText(txt);
+  if (!parsed.length) {
+    setRes('没解析出任何改枪码。请确认每行形如 <code>K437突击步枪-烽火地带-6LGJI6G04MQ3QFJ82EAKL   满改</code>（枪名与方案名之间的空格随意）。');
+    return;
+  }
+  var groups = groupByCat(parsed);
+  var s = countOf(groups);
+  setRes('解析成功：<b>' + s.guns + '</b> 把枪械  <b>' + s.builds + '</b> 套方案。分类预览：' +
+    groups.map(function (c) { return A.esc(c.name) + '(' + c.guns.length + ')'; }).join('、'));
+}
+
+function doReplace() {
+  if (!parsed || !parsed.length) { doParse(); }
+  if (!parsed || !parsed.length) { return; }
+  if (!window.confirm('用粘贴的内容【替换】当前全部数据？当前数据将丢失（建议先导出备份）。')) { return; }
+  var d = { version: new Date().toISOString().slice(0, 10), author: state.data.author || '久别',
+    groups: groupByCat(parsed) };
+  A.persist(d); state.data = d; A.renderAll(); A.toast('已替换为粘贴的数据');
+  document.getElementById('bulkText').value = '';
+  parsed = null; setRes('已替换。');
+}
+
+function doMerge() {
+  if (!parsed || !parsed.length) { doParse(); }
+  if (!parsed || !parsed.length) { return; }
+  var d = A.clone(state.data), added = 0, dup = 0;
+  parsed.forEach(function (ng) {
+    var cat = classify(ng.name), target = null, i;
+    for (i = 0; i < d.groups.length; i++) { if (d.groups[i].id === cat) { target = d.groups[i]; break; } }
+    if (!target) {
+      var meta = CATS.filter(function (x) { return x.id === cat; })[0];
+      target = { id: cat, name: meta.name, blurb: meta.blurb, color: meta.color, guns: [] };
+      d.groups.push(target);
+    }
+    var gun = null;
+    for (i = 0; i < target.guns.length; i++) { if (A.norm(target.guns[i].name) === A.norm(ng.name)) { gun = target.guns[i]; break; } }
+    if (!gun) { gun = { name: ng.name, builds: [] }; target.guns.push(gun); }
+    ng.builds.forEach(function (b) {
+      var exists = gun.builds.some(function (x) { return x.code === b.code; });
+      if (exists) { dup += 1; } else { gun.builds.push({ note: b.note, code: b.code }); added += 1; }
+    });
+  });
+  A.persist(d); state.data = d; A.renderAll();
+  A.toast('合并完成：新增 ' + added + ' 套' + (dup ? '，跳过重复 ' + dup + ' 套' : ''));
+  setRes('合并完成：新增 <b>' + added + '</b> 套，跳过重复 ' + dup + ' 套。');
+}
+
+/* ---------- 导出 / 导入 ---------- */
+function download(name, text, mime) {
+  var blob = new Blob([text], { type: mime || 'text/plain;charset=utf-8' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click();
+  setTimeout(function () { URL.revokeObjectURL(url); if (a.parentNode) { a.parentNode.removeChild(a); } }, 600);
+}
+
+function exportJSON() {
+  download('改枪码数据备份.json', JSON.stringify(state.data, null, 2), 'application/json;charset=utf-8');
+  A.toast('已导出 JSON 备份');
+}
+function exportTXT() {
+  var lines = [];
+  (state.data.groups || []).forEach(function (c) {
+    (c.guns || []).forEach(function (g) {
+      lines.push(g.name);
+      (g.builds || []).forEach(function (b) {
+        lines.push(b.code + (b.note ? '   ' + b.note : ''));
+      });
+      lines.push('');
+    });
+  });
+  download('三角洲改枪码.txt', lines.join('\r\n'), 'text/plain;charset=utf-8');
+  A.toast('已导出 txt（可直接发回给我重新生成）');
+}
+function importFile(file) {
+  var fr = new FileReader();
+  fr.onload = function () {
+    var txt = String(fr.result || '').replace(/^\uFEFF/, '');
+    var d = null;
+    try { d = JSON.parse(txt); } catch (e) { d = null; }
+    if (d && d.groups && d.groups.length) {
+      if (!window.confirm('导入 JSON 备份，覆盖当前网页数据？')) { return; }
+      A.persist(d); state.data = d; A.renderAll(); A.toast('已导入 JSON 备份');
+      return;
+    }
+    var guns = parseText(txt);
+    if (!guns.length) { window.alert('文件里没解析出改枪码。'); return; }
+    if (!window.confirm('识别为文本格式，导入后将替换当前全部数据，继续？')) { return; }
+    var nd = { version: new Date().toISOString().slice(0, 10), author: state.data.author || '久别', groups: groupByCat(guns) };
+    A.persist(nd); state.data = nd; A.renderAll(); A.toast('已导入文本数据');
+  };
+  fr.readAsText(file, 'utf-8');
+}
+function resetDefault() {
+  if (!window.confirm('恢复为网页自带的原始数据？你在网页上的所有改动会被清除。')) { return; }
+  try { localStorage.removeItem(A.LS_KEY); } catch (e) {}
+  state.data = A.clone(A.DEFAULT_DATA);
+  A.renderAll(); A.toast('已恢复原始数据');
+}
+function clearAll() {
+  if (!window.confirm('清空全部改枪码，从零开始？（建议先导出备份）')) { return; }
+  var d = { version: new Date().toISOString().slice(0, 10), author: state.data.author || '久别', groups: [] };
+  A.persist(d); state.data = d; A.renderAll(); A.toast('已清空');
+}
+
+function openBulkFromData() {
+  var lines = [];
+  (state.data.groups || []).forEach(function (c) {
+    (c.guns || []).forEach(function (g) {
+      lines.push(g.name);
+      (g.builds || []).forEach(function (b) { lines.push(b.code + (b.note ? '   ' + b.note : '')); });
+      lines.push('');
+    });
+  });
+  document.getElementById('bulkText').value = lines.join('\n');
+  parsed = null;
+  setRes('已把当前网页数据填进文本框，可直接修改后点「替换全部数据」。');
+}
+
+window.__BULK__ = { bind: function () {
+  document.getElementById('btnBulkParse').addEventListener('click', doParse);
+  document.getElementById('btnBulkReplace').addEventListener('click', doReplace);
+  document.getElementById('btnBulkMerge').addEventListener('click', doMerge);
+  document.getElementById('btnBulkLoad').addEventListener('click', openBulkFromData);
+  document.getElementById('btnExpJson').addEventListener('click', exportJSON);
+  document.getElementById('btnExpTxt').addEventListener('click', exportTXT);
+  document.getElementById('btnResetDef').addEventListener('click', resetDefault);
+  document.getElementById('btnClearAll').addEventListener('click', clearAll);
+  document.getElementById('fileImport').addEventListener('change', function (e) {
+    var f = e.target.files && e.target.files[0];
+    if (f) { importFile(f); }
+    e.target.value = '';
+  });
+  document.getElementById('btnImport').addEventListener('click', function () {
+    document.getElementById('fileImport').click();
+  });
+}, parseText: parseText, groupByCat: groupByCat, classify: classify, CATS: CATS };
+})();
+
+/* 抽奖：幸运转盘 / 幸运滚轮 / 幸运老虎机 */
+(function () {
+'use strict';
+var A = window.__APP__;
+var state = A.state;
+
+var MODES = ['wheel', 'roller', 'slot'];
+var MODE_KEY = 'dfgcode.draw.mode';
+var SIZE = 340, RIM = 146, SLOTS = 8, PAWS = 24, TICKS = 72;
+var WHEEL_COLORS = ['#ff8a00', '#2ee6a8', '#4aa8ff', '#ff5f6d', '#a86bff', '#ffd166', '#3ddad7', '#f97ba8'];
+var GUN_KINDS = ['ar', 'sr', 'smg', 'hg', 'sg', 'mg'];
+var CELL_GRADS = [['#fff0b8', '#ff9f1a'], ['#c8f7dc', '#22c98a'], ['#cfe4ff', '#3b8cff']];
+var CELL_FALLBACK = 96, NV = 16;
+
+var mode = 'wheel', busy = false, spinTimer = null;
+var canvas, sectors = [], pool = [], rot = 0, hiSector = -1, revealRAF = 0, slotRAF = 0;
+
+var LUCKY = ['一发出红', '连着出红', '红到发紫', '大红满仓', '大红大紫', '红卡到手', '箱子开红', '满仓出红',
+  '爆率拉满', '高价值区', '满仓撒离', '摸金成功', '血赚一波', '金砖爆仓', '曼德尔砖', '欧皇附体',
+  '一路猛攻', '带头猛攻', '猛攻不怂', '猛攻拿下', '突突到底', '冲就完了', '正面刚枪', '秒天秒地',
+  '全场压制', '碾压全场', '一波带走', '干净利落', '强势清场', '杀穿全场', '枪枪爆头', '全歼对手',
+  '零封对面', '锁头全靠', '绕后偷家', '点位压制', '空投在手', '大金到手', '全身而退', '一路平推',
+  '强势带队', '刚枪不倒', '抢点成功', '开箱见喜', '大爆一把', '欧气冲天', '稳稳出红', '满载而归'];
+
+var DELTA = ['出红了', '大红满仓', '红卡到手', '曼德尔砖', '金砖爆仓', '爆率拉满', '大红大紫', '高价值区',
+  '满仓撤离', '摸金成功', '连着出红', '红到发紫', '箱子开红', '血赚一波', '一发出红', '欧皇附体',
+  '一路猛攻', '带头猛攻', '猛攻不怂', '突突到底', '冲就完了', '正面刚枪', '秒天秒地', '全场压制',
+  '碾压全场', '一波带走', '干净利落', '强势清场', '杀穿全场', '枪枪爆头', '猛攻拿下', '全歼对手'];
+
+var PAW_KINDS = ['cat', 'dog', 'bird', 'duck', 'bear', 'deer', 'rabbit', 'horse', 'frog'];
+
+function pawBody(kind, paint, dark) {
+  paint = paint || '#ffb02e'; dark = dark || '#0b0f16';
+  switch (kind) {
+  case 'cat':
+    return '<ellipse cx="0" cy="3" rx="5" ry="4.2"/>' +
+      '<circle cx="-4.7" cy="-3.4" r="2.1"/><circle cx="-1.6" cy="-5.3" r="2.15"/>' +
+      '<circle cx="1.6" cy="-5.3" r="2.15"/><circle cx="4.7" cy="-3.4" r="2.1"/>';
+  case 'dog':
+    return '<path d="M0 6.8 L-5.4 1.4 L0 -2.4 L5.4 1.4 Z"/>' +
+      '<ellipse cx="-4.7" cy="-4.1" rx="1.7" ry="2.7"/><ellipse cx="-1.6" cy="-5.9" rx="1.7" ry="2.8"/>' +
+      '<ellipse cx="1.6" cy="-5.9" rx="1.7" ry="2.8"/><ellipse cx="4.7" cy="-4.1" rx="1.7" ry="2.7"/>';
+  case 'bird':
+    return '<path d="M0 2 L0 -6.6" fill="none" stroke="' + paint + '" stroke-width="1.7"/>' +
+      '<path d="M0 1.4 L-5.6 -4.8" fill="none" stroke="' + paint + '" stroke-width="1.6"/>' +
+      '<path d="M0 1.4 L5.6 -4.8" fill="none" stroke="' + paint + '" stroke-width="1.6"/>' +
+      '<path d="M0 2 L0 6.4" fill="none" stroke="' + paint + '" stroke-width="1.6"/>' +
+      '<circle cx="-5.6" cy="-5.2" r="1.1"/><circle cx="5.6" cy="-5.2" r="1.1"/><circle cx="0" cy="1" r="1.6"/>';
+  case 'duck':
+    return '<path d="M0 -6.4 Q-6.6 -1.4 -5.6 3.6 Q0 6.4 5.6 3.6 Q6.6 -1.4 0 -6.4 Z"/>' +
+      '<path d="M0 -5 L0 5.4" fill="none" stroke="' + dark + '" stroke-width="1.1" stroke-opacity=".65"/>' +
+      '<path d="M0 -2.6 L-5 2.6" fill="none" stroke="' + dark + '" stroke-width="1.1" stroke-opacity=".65"/>' +
+      '<path d="M0 -2.6 L5 2.6" fill="none" stroke="' + dark + '" stroke-width="1.1" stroke-opacity=".65"/>';
+  case 'bear':
+    return '<ellipse cx="0" cy="3.6" rx="6" ry="4.3"/>' +
+      '<circle cx="-5.1" cy="-3.2" r="1.85"/><circle cx="-2.6" cy="-5" r="1.85"/>' +
+      '<circle cx="0" cy="-5.6" r="1.85"/><circle cx="2.6" cy="-5" r="1.85"/><circle cx="5.1" cy="-3.2" r="1.85"/>';
+  case 'deer':
+    return '<ellipse cx="-2.1" cy="0.8" rx="1.9" ry="4.7"/><ellipse cx="2.1" cy="0.8" rx="1.9" ry="4.7"/>' +
+      '<path d="M-1.4 -3.6 Q0 -2.2 1.4 -3.6" fill="none" stroke="' + paint + '" stroke-width="1.2"/>';
+  case 'rabbit':
+    return '<ellipse cx="-2.5" cy="1.8" rx="1.9" ry="4.3"/><ellipse cx="2.5" cy="1.8" rx="1.9" ry="4.3"/>' +
+      '<circle cx="-1.8" cy="-5.6" r="1.5"/><circle cx="1.8" cy="-5.6" r="1.5"/>';
+  case 'horse':
+    return '<path d="M0 -4.4 Q-5.3 -4.4 -5.3 1.2 Q-5.3 5.6 0 6.2 Q5.3 5.6 5.3 1.2 Q5.3 -4.4 0 -4.4 Z"/>' +
+      '<path d="M0 -3.2 L-1.9 2 L0 5 L1.9 2 Z" fill="' + dark + '" fill-opacity=".85"/>';
+  case 'frog':
+    return '<ellipse cx="0" cy="4.6" rx="2.5" ry="2.4"/>' +
+      '<ellipse cx="-4.2" cy="-3" rx="1.35" ry="3.2" transform="rotate(-16 -4.2 -3)"/>' +
+      '<ellipse cx="-1.5" cy="-4.6" rx="1.35" ry="3.3" transform="rotate(-5 -1.5 -4.6)"/>' +
+      '<ellipse cx="1.5" cy="-4.6" rx="1.35" ry="3.3" transform="rotate(5 1.5 -4.6)"/>' +
+      '<ellipse cx="4.2" cy="-3" rx="1.35" ry="3.2" transform="rotate(16 4.2 -3)"/>';
+  }
+  return '';
+}
+function pawSvg(kind, paint, cls) {
+  var pt = paint || '#ffb02e';
+  return '<svg viewBox="-13 -13 26 26" aria-hidden="true" data-k="' + kind + '" class="' + (cls || '') +
+    '"><g fill="' + pt + '">' + pawBody(kind, pt) + '</g></svg>';
+}
+function pawGradSvg(kind, gid, c1, c2, cls) {
+  var u = 'url(#' + gid + ')';
+  return '<svg viewBox="-13 -13 26 26" aria-hidden="true" data-k="' + kind + '" class="' + (cls || '') + '">' +
+    '<defs><linearGradient id="' + gid + '" x1="0" y1="0" x2="1" y2="1">' +
+    '<stop offset="0" stop-color="' + c1 + '"/><stop offset="1" stop-color="' + c2 + '"/></linearGradient></defs>' +
+    '<g fill="' + u + '">' + pawBody(kind, u) + '</g></svg>';
+}
+
+function pawRichSvg(kind, gid, c1, c2, cls) {
+  var u = 'url(#' + gid + ')', hv = 'url(#' + gid + '_h)', body = pawBody(kind, u, '#3a2400');
+  var a = c1, b = c2;
+  return '<svg viewBox="-15 -15 30 30" aria-hidden="true" data-k="' + kind + '" class="' + (cls || '') + '">' +
+    '<defs>' +
+    '<linearGradient id="' + gid + '" x1="0.12" y1="0" x2="0.88" y2="1">' +
+    '<stop offset="0" stop-color="' + a + '"/><stop offset="0.5" stop-color="' + b + '"/>' +
+    '<stop offset="1" stop-color="' + shade(b, 0.62) + '"/></linearGradient>' +
+    '<radialGradient id="' + gid + '_h" cx="0" cy="-3" r="11" gradientUnits="userSpaceOnUse">' +
+    '<stop offset="0" stop-color="#ffffff" stop-opacity="0.78"/>' +
+    '<stop offset="0.55" stop-color="#ffffff" stop-opacity="0.16"/>' +
+    '<stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>' +
+    '</defs>' +
+    '<g stroke="rgba(58,32,0,.6)" stroke-width="0.5" stroke-linejoin="round">' +
+    '<g fill="' + u + '">' + body + '</g>' +
+    '<g fill="' + hv + '" stroke="none">' + body + '</g>' +
+    '</g></svg>';
+}
+function hex2rgb(h) {
+  h = String(h || '#888888').replace('#', '');
+  if (h.length === 3) { h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2]; }
+  return [parseInt(h.slice(0, 2), 16) || 0, parseInt(h.slice(2, 4), 16) || 0, parseInt(h.slice(4, 6), 16) || 0];
+}
+function mixArr(a, b, t) {
+  return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]
+    .map(function (v) { return Math.round(v); });
+}
+function rgbOf(a) { return 'rgb(' + a[0] + ',' + a[1] + ',' + a[2] + ')'; }
+function shade(h, f) {
+  var a = hex2rgb(h);
+  return '#' + a.map(function (v) {
+    return ('0' + Math.max(0, Math.min(255, Math.round(v * f))).toString(16)).slice(-2);
+  }).join('');
+}
+
+/* ---- 幸运转盘：渐变猫爪好运 + 多样脚印 + 刻度环 ---- */
+var PAW_GRADS = [['#ffe08a', '#ff8a00'], ['#7ef0c4', '#2ea8ff'], ['#d7a4ff', '#ff6fae']];
+
+function renderLucky() {
+  var host = document.getElementById('luckyBar');
+  if (!host) { return; }
+  var k = Math.floor(Math.random() * LUCKY.length), parts = [], i;
+  for (i = 0; i < 3; i++) {
+    var g = PAW_GRADS[i];
+    parts.push('<i class="lucky-paw">' + pawGradSvg(PAW_KINDS[(k + i * 3) % PAW_KINDS.length],
+      'lpaw' + i, g[0], g[1]) + '</i>');
+    parts.push('<span>' + LUCKY[(k + i * 7) % LUCKY.length] + '</span>');
+  }
+  host.innerHTML = parts.join('');
+}
+
+function renderPaws() {
+  var host = document.getElementById('pawRing');
+  if (!host) { return; }
+  var R = 168, out = ['<svg viewBox="0 0 360 360" aria-hidden="true">'], i;
+  for (i = 0; i < PAWS; i++) {
+    var j = ((i * 37 + 11) % 100) / 100;
+    var kind = PAW_KINDS[(i * 5 + 3) % PAW_KINDS.length];
+    var ang = i * (360 / PAWS) + (j * 11 - 5.5);
+    var rad = R + (j * 7 - 3.5);
+    var sc = 0.8 + j * 0.45;
+    var spin = j * 30 - 15;
+    out.push('<g data-k="' + kind + '" transform="rotate(' + ang.toFixed(1) + ' 180 180) translate(180 ' +
+      (180 - rad).toFixed(1) + ') rotate(' + spin.toFixed(1) + ') scale(' + sc.toFixed(2) +
+      ')" fill="#ffb02e" opacity="' + (0.32 + j * 0.4).toFixed(2) + '">');
+    out.push(pawBody(kind));
+    out.push('</g>');
+  }
+  out.push('</svg>');
+  host.innerHTML = out.join('');
+}
+
+function renderTicks() {
+  var host = document.getElementById('tickRing');
+  if (!host) { return; }
+  var out = ['<svg viewBox="0 0 360 360" aria-hidden="true"><g stroke="#ffb02e">'], i;
+  for (i = 0; i < TICKS; i++) {
+    var lng = (i % 6 === 0);
+    var r1 = lng ? 150 : 155, r2 = lng ? 160 : 159;
+    var a = (i * 360 / TICKS - 90) * Math.PI / 180;
+    out.push('<line x1="' + (180 + Math.cos(a) * r1).toFixed(1) + '" y1="' + (180 + Math.sin(a) * r1).toFixed(1) +
+      '" x2="' + (180 + Math.cos(a) * r2).toFixed(1) + '" y2="' + (180 + Math.sin(a) * r2).toFixed(1) +
+      '" stroke-opacity="' + (lng ? 0.8 : 0.32) + '" stroke-width="' + (lng ? 2 : 1.2) + '"/>');
+  }
+  out.push('</g></svg>');
+  host.innerHTML = out.join('');
+}
+
+function sectorsFrom(p) {
+  var K = Math.max(1, Math.min(SLOTS, p.length));
+  var pal = WHEEL_COLORS, out = [], prev = 0, i;
+  for (i = 0; i < K; i++) {
+    var upto = Math.round(p.length * (i + 1) / K);
+    out.push({ color: pal[i % pal.length], items: p.slice(prev, upto),
+      start: prev / p.length, end: upto / p.length });
+    prev = upto;
+  }
+  return out;
+}
+
+/* 扇区里的「未揭秘」枪械剪影 + 问号 */
+function gunPath(c, s, kind) {
+  c.beginPath();
+  switch (kind) {
+  case 'hg':
+    c.rect(-17 * s, -6.2 * s, 30 * s, 10 * s);
+    c.rect(-19 * s, -9.4 * s, 34 * s, 3.4 * s);
+    c.moveTo(-6 * s, 3.6 * s); c.lineTo(4 * s, 3.6 * s); c.lineTo(1 * s, 17 * s); c.lineTo(-7 * s, 17 * s); c.closePath();
+    c.rect(-2.4 * s, 3.8 * s, 3.6 * s, 4.4 * s);
+    c.rect(-20.5 * s, -6.4 * s, 4 * s, 6 * s);
+    break;
+  case 'sr':
+    c.rect(-33 * s, -2 * s, 41 * s, 3.5 * s);
+    c.rect(-3 * s, -6.6 * s, 20 * s, 9.4 * s);
+    c.moveTo(-2 * s, 2.8 * s); c.lineTo(5 * s, 2.8 * s); c.lineTo(3 * s, 14 * s); c.lineTo(-3 * s, 14 * s); c.closePath();
+    c.moveTo(16 * s, -4.8 * s); c.lineTo(30 * s, -6.4 * s); c.lineTo(31 * s, 1 * s); c.lineTo(16 * s, 3.4 * s); c.closePath();
+    c.rect(0 * s, -15 * s, 19 * s, 5 * s);
+    c.rect(3 * s, -17 * s, 13 * s, 2.2 * s);
+    c.moveTo(-27 * s, 1.6 * s); c.lineTo(-33 * s, 15 * s); c.lineTo(-31.5 * s, 15.6 * s); c.lineTo(-26 * s, 2 * s); c.closePath();
+    c.moveTo(-20 * s, 1.6 * s); c.lineTo(-15 * s, 15 * s); c.lineTo(-16.5 * s, 15.6 * s); c.lineTo(-21 * s, 2 * s); c.closePath();
+    break;
+  case 'smg':
+    c.rect(-22 * s, -2.4 * s, 26 * s, 4.5 * s);
+    c.rect(-2 * s, -7 * s, 18 * s, 11 * s);
+    c.moveTo(-1 * s, 4 * s); c.lineTo(6 * s, 4 * s); c.lineTo(4 * s, 20 * s); c.lineTo(-3 * s, 20 * s); c.closePath();
+    c.moveTo(7 * s, 4 * s); c.lineTo(12 * s, 4 * s); c.lineTo(9 * s, 15 * s); c.lineTo(5 * s, 15 * s); c.closePath();
+    c.rect(13 * s, -6 * s, 9 * s, 3.4 * s);
+    c.rect(0 * s, -11 * s, 8 * s, 3 * s);
+    c.rect(-21 * s, -4.6 * s, 4 * s, 8.4 * s);
+    break;
+  case 'sg':
+    c.rect(-31 * s, -4.6 * s, 39 * s, 4.3 * s);
+    c.rect(-26 * s, 0.4 * s, 24 * s, 3.6 * s);
+    c.rect(-4 * s, -6.4 * s, 21 * s, 11 * s);
+    c.moveTo(-2 * s, 4 * s); c.lineTo(5 * s, 4 * s); c.lineTo(3 * s, 15 * s); c.lineTo(-3 * s, 15 * s); c.closePath();
+    c.moveTo(15 * s, -4.6 * s); c.lineTo(29 * s, -6 * s); c.lineTo(30 * s, 2 * s); c.lineTo(15 * s, 4 * s); c.closePath();
+    c.rect(-25 * s, -7.4 * s, 13 * s, 3.6 * s);
+    break;
+  case 'mg':
+    c.rect(-31 * s, -3 * s, 41 * s, 4.5 * s);
+    c.rect(-4 * s, -7 * s, 23 * s, 12 * s);
+    c.moveTo(-2 * s, 5 * s); c.lineTo(5 * s, 5 * s); c.lineTo(3 * s, 16 * s); c.lineTo(-3 * s, 16 * s); c.closePath();
+    c.moveTo(17 * s, -5.6 * s); c.lineTo(31 * s, -6.6 * s); c.lineTo(32 * s, 1.6 * s); c.lineTo(17 * s, 3.8 * s); c.closePath();
+    c.rect(-11 * s, 4.6 * s, 15 * s, 9 * s);
+    c.moveTo(-22 * s, 1.6 * s); c.lineTo(-28 * s, 15 * s); c.lineTo(-26.5 * s, 15.6 * s); c.lineTo(-21 * s, 2 * s); c.closePath();
+    c.moveTo(-15 * s, 1.6 * s); c.lineTo(-10 * s, 15 * s); c.lineTo(-11.5 * s, 15.6 * s); c.lineTo(-16 * s, 2 * s); c.closePath();
+    break;
+  default:
+    c.rect(-30 * s, -1.9 * s, 38 * s, 3.8 * s);
+    c.rect(-4 * s, -6.6 * s, 21 * s, 9.6 * s);
+    c.moveTo(-1 * s, 3 * s); c.lineTo(7 * s, 3 * s); c.lineTo(5 * s, 15 * s); c.lineTo(-2 * s, 15 * s); c.closePath();
+    c.moveTo(9 * s, 3 * s); c.lineTo(15 * s, 3 * s); c.lineTo(12 * s, 17 * s); c.lineTo(7 * s, 17 * s); c.closePath();
+    c.moveTo(14 * s, -5 * s); c.lineTo(28 * s, -7 * s); c.lineTo(29 * s, 1 * s); c.lineTo(14 * s, 4 * s); c.closePath();
+    c.rect(1 * s, -11 * s, 11 * s, 3.2 * s);
+    c.rect(-16 * s, -1 * s, 5 * s, 6 * s);
+    break;
+  }
+}
+
+function drawMystery(c, cx, cy, ang, dist, s, hit, rev, kind) {
+  var x = cx + Math.cos(ang) * dist, y = cy + Math.sin(ang) * dist;
+  c.save();
+  c.translate(x, y);
+  c.rotate(ang + Math.PI / 2);
+  c.scale(s, s);
+  c.fillStyle = (hit && rev > 0.5) ? 'rgba(255,240,204,.95)'
+    : (hit ? 'rgba(255,234,186,.82)' : 'rgba(208,218,234,.32)');
+  gunPath(c, 1, kind);
+  c.fill();
+  c.restore();
+  if (hit && rev > 0.55) { return; }
+  c.save();
+  c.globalAlpha = hit ? Math.max(0, 1 - rev / 0.55) * 0.9 : 0.6;
+  c.font = 'bold 25px "Segoe UI", "Microsoft YaHei", sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillStyle = hit ? 'rgba(255,246,220,.95)' : 'rgba(230,238,250,.92)';
+  c.fillText('?', x, y);
+  c.restore();
+}
+
+function draw(hi, rev) {
+  if (!canvas) { return; }
+  rev = rev || 0;
+  var dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+  canvas.width = SIZE * dpr; canvas.height = SIZE * dpr;
+  var c = canvas.getContext('2d');
+  c.setTransform(dpr, 0, 0, dpr, 0, 0);
+  c.clearRect(0, 0, SIZE, SIZE);
+  var cx = SIZE / 2, cy = SIZE / 2, R = RIM, n = sectors.length, i, s;
+  c.beginPath(); c.arc(cx, cy, R, 0, Math.PI * 2);
+  c.fillStyle = '#0e1622'; c.fill();
+  if (!n) { return; }
+  for (i = 0; i < n; i++) {
+    var g = sectors[i];
+    var a0 = -Math.PI / 2 + g.start * Math.PI * 2;
+    var a1 = -Math.PI / 2 + g.end * Math.PI * 2;
+    var base = hex2rgb(g.color);
+    c.beginPath(); c.moveTo(cx, cy); c.arc(cx, cy, R, a0, a1); c.closePath();
+    var gr = c.createRadialGradient(cx, cy, R * 0.1, cx, cy, R);
+    gr.addColorStop(0, rgbOf(mixArr(base, [255, 255, 255], 0.45)));
+    gr.addColorStop(0.55, rgbOf(mixArr(base, [255, 255, 255], 0.06)));
+    gr.addColorStop(1, rgbOf(mixArr(base, [6, 10, 16], 0.36)));
+    c.globalAlpha = (i % 2 === 0) ? 1 : 0.9;
+    c.fillStyle = gr; c.fill();
+    c.globalAlpha = 1;
+    c.save();
+    c.beginPath(); c.moveTo(cx, cy); c.arc(cx, cy, R, a0, a1); c.closePath(); c.clip();
+    if (i % 2 === 0) {
+      c.strokeStyle = 'rgba(255,255,255,.10)'; c.lineWidth = 1;
+      for (s = 26; s < R; s += 13) { c.beginPath(); c.arc(cx, cy, s, a0, a1); c.stroke(); }
+    } else {
+      c.strokeStyle = 'rgba(255,255,255,.09)'; c.lineWidth = 1;
+      var steps = Math.max(3, Math.round((a1 - a0) / (Math.PI / 60)));
+      for (s = 1; s < steps; s++) {
+        var aa = a0 + (a1 - a0) * s / steps;
+        c.beginPath();
+        c.moveTo(cx + Math.cos(aa) * 20, cy + Math.sin(aa) * 20);
+        c.lineTo(cx + Math.cos(aa) * R, cy + Math.sin(aa) * R);
+        c.stroke();
+      }
+    }
+    c.restore();
+    var mid = (a0 + a1) / 2;
+    var gs = Math.min(1.05, Math.max(0.42, (a1 - a0) * R / 92));
+    drawMystery(c, cx, cy, mid, R * 0.62, gs, hi === i, rev, GUN_KINDS[i % GUN_KINDS.length]);
+    c.beginPath(); c.moveTo(cx, cy);
+    c.lineTo(cx + Math.cos(a0) * R, cy + Math.sin(a0) * R);
+    c.strokeStyle = 'rgba(255,176,46,.32)'; c.lineWidth = 1.2; c.stroke();
+    if (hi === i) {
+      c.beginPath(); c.moveTo(cx, cy); c.arc(cx, cy, R - 2, a0, a1); c.closePath();
+      c.globalAlpha = 0.14 + 0.18 * rev; c.fillStyle = '#ffffff'; c.fill();
+      c.globalAlpha = 1;
+      c.strokeStyle = '#ffffff'; c.lineWidth = 3; c.stroke();
+    }
+  }
+  c.beginPath(); c.arc(cx, cy, R, 0, Math.PI * 2);
+  c.strokeStyle = 'rgba(255,176,46,.72)'; c.lineWidth = 3; c.stroke();
+  c.beginPath(); c.arc(cx, cy, R - 3.5, 0, Math.PI * 2);
+  c.strokeStyle = 'rgba(8,12,18,.75)'; c.lineWidth = 1.5; c.stroke();
+}
+
+function showResult(p) {
+  var el = document.getElementById('drawResult');
+  el.classList.remove('on');
+  el.innerHTML = '<div class="dr-gun">' + A.esc(p.gun) + '</div>' +
+    '<div class="dr-name">' + A.esc(p.note || '改枪方案') + '</div>' +
+    '<code class="dr-code">' + A.esc(p.code) + '</code>' +
+    '<button type="button" class="btn primary" id="btnCopyDraw">复制改枪码</button>';
+  void el.offsetWidth;
+  el.classList.add('on');
+  var b = document.getElementById('btnCopyDraw');
+  if (b) { b.addEventListener('click', function () { A.copyText(p.code, b, '复制改枪码'); }); }
+}
+
+/* ---- 幸运滚轮：中排三角洲好运，两侧渐变脚印 ---- */
+var roller = { on: false, rows: [], boost: 0, raf: 0, ease: 0, settled: false };
+
+function rollerRows() {
+  if (roller.rows.length) { return roller.rows; }
+  roller.rows = [0, 1, 2].map(function (k) {
+    return { el: document.getElementById('track' + k), phase: (k * 0.27) % 1,
+      speed: [0.62, 0.45, 0.78][k], dir: k === 1 ? -1 : 1, half: 0 };
+  });
+  return roller.rows;
+}
+
+function trackHTML(k) {
+  var out = [], i, off;
+  if (k === 1) {
+    off = Math.floor(Math.random() * DELTA.length);
+    for (i = 0; i < 18; i++) { out.push('<span>' + DELTA[(off + i * 5) % DELTA.length] + '</span>'); }
+  } else {
+    var g = k === 0 ? ['#ffe08a', '#ff8a00'] : ['#8fd4ff', '#a86bff'];
+    off = Math.floor(Math.random() * PAW_KINDS.length);
+    for (i = 0; i < 24; i++) {
+      out.push('<b class="roll-paw">' + pawGradSvg(PAW_KINDS[(off + i * 4) % PAW_KINDS.length],
+        'rp' + k + '_' + i, g[0], g[1]) + '</b>');
+    }
+  }
+  return out.join('');
+}
+
+function fillTracks() {
+  var rows = rollerRows();
+  rows.forEach(function (r, k) {
+    var html = trackHTML(k);
+    r.el.innerHTML = html + html;
+    r.el.style.transition = 'none';
+    r.half = r.el.scrollWidth / 2 || 1;
+    r.phase = (k * 0.27) % 1;
+  });
+}
+
+function rollTick() {
+  if (!roller.on) { return; }
+  roller.rows.forEach(function (r) {
+    r.phase = (r.phase + r.speed * (1 + roller.boost * 9) / r.half) % 1;
+    var d = r.dir > 0 ? -(r.phase * r.half) : -((1 - r.phase) * r.half);
+    r.el.style.transform = 'translateX(' + d.toFixed(2) + 'px)';
+  });
+  roller.raf = requestAnimationFrame(rollTick);
+}
+
+function startRoller() {
+  fillTracks();
+  if (roller.on) { return; }
+  roller.on = true;
+  roller.raf = requestAnimationFrame(rollTick);
+}
+
+function stopRoller() {
+  roller.on = false; roller.boost = 0;
+  if (roller.raf) { cancelAnimationFrame(roller.raf); roller.raf = 0; }
+  if (roller.ease) { cancelAnimationFrame(roller.ease); roller.ease = 0; }
+}
+
+function spinRoller(idx) {
+  var box = document.getElementById('roller');
+  box.classList.remove('hit', 'pause');
+  roller.settled = false;
+  startRoller();
+  var t0 = performance.now(), DUR = 2300;
+  clearTimeout(spinTimer);
+  spinTimer = setTimeout(function () { rollerSettle(idx); }, DUR + 3200);
+  function step(now) {
+    var k = Math.min(1, (now - t0) / DUR);
+    var b = k < 0.32 ? 1 : Math.max(0, 1 - (k - 0.32) / 0.68);
+    roller.boost = b * b * 1.3;
+    if (k < 1) { roller.ease = requestAnimationFrame(step); }
+    else { roller.ease = 0; rollerSettle(idx); }
+  }
+  roller.ease = requestAnimationFrame(step);
+}
+
+function rollerSettle(idx) {
+  if (!busy || roller.settled) { return; }
+  roller.settled = true;
+  clearTimeout(spinTimer);
+  var box = document.getElementById('roller');
+  roller.on = false; roller.boost = 0;
+  if (roller.raf) { cancelAnimationFrame(roller.raf); roller.raf = 0; }
+  if (roller.ease) { cancelAnimationFrame(roller.ease); roller.ease = 0; }
+  var i;
+  for (i = 0; i < 3; i++) {
+    var r = roller.rows[i];
+    var kids = r.el.children, half = Math.floor(kids.length / 2);
+    if (!kids.length || !half) { continue; }
+    var el = kids[Math.floor(Math.random() * half)];
+    var rack = r.el.parentNode.clientWidth || 560;
+    var target = rack / 2 - (el.offsetLeft + el.offsetWidth / 2);
+    r.el.style.transition = 'transform ' + (560 + i * 150) + 'ms cubic-bezier(.16,.9,.22,1)';
+    r.el.style.transform = 'translateX(' + target.toFixed(2) + 'px)';
+  }
+  box.classList.add('pause');
+  setTimeout(function () { box.classList.remove('pause'); box.classList.add('hit'); }, 820);
+  setTimeout(function () { box.classList.remove('hit'); finish(idx); }, 2150);
+}
+
+/* ---- 幸运老虎机：先加速后减速，最后顿挫锁死 ---- */
+function buildReels(winKind) {
+  var reel = document.querySelector('.reel');
+  var cellH = Math.round(reel.getBoundingClientRect().height) || CELL_FALLBACK;
+  for (var r = 0; r < 3; r++) {
+    var total = NV + r * 4, seq = [], i;
+    for (i = 0; i < total; i++) {
+      seq.push(PAW_KINDS[(i * 4 + r * 7 + Math.floor(Math.random() * 9)) % PAW_KINDS.length]);
+    }
+    seq.push(winKind);
+    var strip = document.getElementById('strip' + r);
+    strip.innerHTML = seq.map(function (k, ix) {
+      var gg = (ix === total) ? ['#fff6d0', '#ffab18'] : CELL_GRADS[r % CELL_GRADS.length];
+      return '<div class="cell">' + pawRichSvg(k, 'sl' + r + '_' + ix, gg[0], gg[1]) + '</div>';
+    }).join('');
+    strip.removeAttribute('data-lock');
+    strip.parentNode.classList.remove('lock', 'snap');
+    strip.style.transition = 'none';
+    strip.style.transform = 'translateY(0)';
+  }
+  void reel.offsetHeight;
+  return cellH;
+}
+
+function prepSlot() {
+  var s0 = document.getElementById('strip0');
+  if (s0 && !s0.childNodes.length) { buildReels(PAW_KINDS[0]); }
+}
+
+function slotEase(k) {
+  if (k >= 1) { return 1; }
+  if (k < 0.62) { var u = k / 0.62; return 0.58 * u * u; }
+  var v = (k - 0.62) / 0.38;
+  var e = 1 - Math.pow(1 - v, 3);
+  return 0.58 + 0.42 * e + 0.03 * Math.sin(v * Math.PI) * (1 - v);
+}
+
+function spinSlot(idx) {
+  var box = document.getElementById('slotBox');
+  box.classList.remove('win');
+  var winKind = PAW_KINDS[Math.floor(Math.random() * PAW_KINDS.length)];
+  var cellH = buildReels(winKind);
+  var strips = [0, 1, 2].map(function (r) { return document.getElementById('strip' + r); });
+  var target = [0, 1, 2].map(function (r) { return (NV + r * 4) * cellH; });
+  var DUR = [2000, 2500, 3050];
+  var t0 = performance.now();
+  var lv = document.getElementById('lever');
+  lv.classList.add('on');
+  setTimeout(function () { lv.classList.remove('on'); }, 430);
+  clearTimeout(spinTimer);
+  spinTimer = setTimeout(function () { slotSettle(idx); }, DUR[2] + 1500);
+  function step(now) {
+    var done = true, r;
+    for (r = 0; r < 3; r++) {
+      var k = Math.min(1, (now - t0) / DUR[r]);
+      var p = slotEase(k);
+      strips[r].style.transform = 'translateY(' + (-(p * target[r])).toFixed(1) + 'px)';
+      if (k < 1) { done = false; }
+      else if (!strips[r].getAttribute('data-lock')) {
+        strips[r].setAttribute('data-lock', '1');
+        (function (el) {
+          el.classList.add('snap');
+          setTimeout(function () { el.classList.remove('snap'); el.classList.add('lock'); }, 430);
+        })(strips[r].parentNode);
+      }
+    }
+    if (!done) { slotRAF = requestAnimationFrame(step); }
+    else { slotRAF = 0; }
+  }
+  slotRAF = requestAnimationFrame(step);
+}
+
+function slotSettle(idx) {
+  if (!busy) { return; }
+  clearTimeout(spinTimer);
+  var box = document.getElementById('slotBox'), i;
+  for (i = 0; i < 3; i++) {
+    var strip = document.getElementById('strip' + i);
+    strip.removeAttribute('data-lock');
+    strip.parentNode.classList.add('lock');
+  }
+  box.classList.add('win');
+  setTimeout(function () { box.classList.remove('win'); }, 1700);
+  finish(idx);
+}
+
+/* ---- 通用 ---- */
+function setButtons(dis) {
+  ['btnSpin', 'btnRollSpin', 'btnSlotSpin'].forEach(function (id) {
+    var b = document.getElementById(id);
+    if (b) { b.disabled = !!dis; }
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('#drawModes .dm-btn, #btnSwapMode'), function (b) {
+    b.disabled = !!dis;
+  });
+}
+
+function updateMeta() {
+  var meta = document.getElementById('drawMeta');
+  if (!meta) { return; }
+  if (!pool.length) {
+    meta.innerHTML = '当前筛选条件下没有可抽的改枪码，换个分类或清空搜索试试。';
+    return;
+  }
+  meta.textContent = '本次奖池：其中 ' + pool.length + ' 套改枪码';
+}
+
+function finish(idx) {
+  if (!busy) { return; }
+  busy = false;
+  clearTimeout(spinTimer);
+  setButtons(false);
+  if (pool[idx]) { showResult(pool[idx]); }
+}
+
+function setMode(m) {
+  if (busy) { return; }
+  if (MODES.indexOf(m) < 0) { m = 'wheel'; }
+  mode = m;
+  try { localStorage.setItem(MODE_KEY, m); } catch (e) {}
+  Array.prototype.forEach.call(document.querySelectorAll('#drawModes .dm-btn'), function (b) {
+    b.classList.toggle('on', b.getAttribute('data-mode') === m);
+  });
+  document.getElementById('paneWheel').classList.toggle('on', m === 'wheel');
+  document.getElementById('paneRoller').classList.toggle('on', m === 'roller');
+  document.getElementById('paneSlot').classList.toggle('on', m === 'slot');
+  roller.settled = false;
+  if (m === 'roller') { startRoller(); } else { stopRoller(); }
+  if (m === 'slot') { prepSlot(); }
+  updateMeta();
+}
+
+function spin() {
+  if (busy) { return; }
+  if (!pool.length) { A.toast('当前没有可抽的改枪码'); return; }
+  busy = true;
+  roller.settled = false;
+  setButtons(true);
+  var res = document.getElementById('drawResult');
+  res.classList.remove('on');
+  res.innerHTML = '';
+  var idx = Math.floor(Math.random() * pool.length);
+  if (mode === 'wheel') { spinWheel(idx); }
+  else if (mode === 'roller') { spinRoller(idx); }
+  else { spinSlot(idx); }
+}
+
+function sectorOf(idx) {
+  var cum = 0, i;
+  for (i = 0; i < sectors.length; i++) {
+    if (idx < cum + sectors[i].items.length) { return { gi: i, cum: cum }; }
+    cum += sectors[i].items.length;
+  }
+  return { gi: sectors.length - 1, cum: 0 };
+}
+
+function spinWheel(idx) {
+  var at = sectorOf(idx), gi = at.gi, g = sectors[gi];
+  if (!g) { finish(idx); return; }
+  var span = (g.end - g.start) / g.items.length;
+  var target = (g.start + span * (idx - at.cum + 0.5)) * 360;
+  var need = (((-target - rot) % 360) + 360) % 360;
+  rot += 360 * (5 + Math.floor(Math.random() * 4)) + need;
+  hiSector = gi;
+  canvas.style.transition = 'transform 4.2s cubic-bezier(.16,.84,.24,1)';
+  canvas.style.transform = 'rotate(' + rot + 'deg)';
+  var paw = document.getElementById('pawRing');
+  if (paw) {
+    paw.style.transition = 'transform 4.2s cubic-bezier(.16,.84,.24,1)';
+    paw.style.transform = 'rotate(' + (-rot) + 'deg)';
+  }
+  clearTimeout(spinTimer);
+  spinTimer = setTimeout(function () {
+    renderLucky();
+    draw(gi, 0);
+    revealAnim(gi);
+    finish(idx);
+  }, 4320);
+}
+
+function revealAnim(gi) {
+  if (revealRAF) { cancelAnimationFrame(revealRAF); revealRAF = 0; }
+  var t0 = performance.now(), DUR = 640;
+  function step(now) {
+    var k = Math.min(1, (now - t0) / DUR);
+    var e = 1 - Math.pow(1 - k, 3);
+    draw(gi, e);
+    if (k < 1) { revealRAF = requestAnimationFrame(step); }
+    else { revealRAF = 0; }
+  }
+  revealRAF = requestAnimationFrame(step);
+}
+
+function loadMode() {
+  try {
+    var m = localStorage.getItem(MODE_KEY);
+    if (MODES.indexOf(m) >= 0) { return m; }
+  } catch (e) {}
+  return 'wheel';
+}
+
+function open() {
+  pool = A.currentPool();
+  sectors = sectorsFrom(pool);
+  renderPaws();
+  renderTicks();
+  renderLucky();
+  rot = 0;
+  hiSector = -1;
+  if (revealRAF) { cancelAnimationFrame(revealRAF); revealRAF = 0; }
+  if (canvas) {
+    canvas.style.transition = 'none';
+    canvas.style.transform = 'rotate(0deg)';
+  }
+  var paw = document.getElementById('pawRing');
+  if (paw) {
+    paw.style.transition = 'none';
+    paw.style.transform = 'rotate(0deg)';
+  }
+  draw(-1, 0);
+  var res = document.getElementById('drawResult');
+  res.classList.remove('on');
+  res.innerHTML = '';
+  document.getElementById('drawModal').classList.add('on');
+  setMode(mode);
+  setButtons(!pool.length);
+}
+
+function close() {
+  stopRoller();
+  if (revealRAF) { cancelAnimationFrame(revealRAF); revealRAF = 0; }
+  if (slotRAF) { cancelAnimationFrame(slotRAF); slotRAF = 0; }
+  document.getElementById('drawModal').classList.remove('on');
+}
+
+function bind() {
+  canvas = document.getElementById('wheel');
+  mode = loadMode();
+  document.getElementById('btnDraw').addEventListener('click', open);
+  document.getElementById('drawClose').addEventListener('click', close);
+  document.getElementById('btnSpin').addEventListener('click', spin);
+  document.getElementById('btnRollSpin').addEventListener('click', spin);
+  document.getElementById('btnSlotSpin').addEventListener('click', spin);
+  document.getElementById('lever').addEventListener('click', spin);
+  document.getElementById('btnSwapMode').addEventListener('click', function () {
+    setMode(MODES[(MODES.indexOf(mode) + 1) % MODES.length]);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('#drawModes .dm-btn'), function (b) {
+    b.addEventListener('click', function () { setMode(b.getAttribute('data-mode')); });
+  });
+  if (canvas) { canvas.addEventListener('click', function () { spin(); }); }
+  setMode(mode);
+}
+
+window.__DRAW__ = { bind: bind, open: open, close: close, spin: spin, setMode: setMode,
+  info: function () {
+    return { mode: mode, pool: pool.length, sectors: sectors.length, busy: busy, rot: rot,
+      lucky: LUCKY.length, delta: DELTA.length, kinds: PAW_KINDS.length, paws: PAWS,
+      rollerOn: roller.on, hi: hiSector };
+  } };
+})();
+
+/* ---------- 弹窗 / 标签页 / 初始化 ---------- */
+(function () {
+'use strict';
+var A = window.__APP__;
+var state = A.state;
+
+function switchTab(name) {
+  Array.prototype.forEach.call(document.querySelectorAll('.tabs button'), function (b) {
+    b.classList.toggle('on', b.getAttribute('data-tab') === name);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.tabpane'), function (p) {
+    p.classList.toggle('on', p.id === 'tab' + name.charAt(0).toUpperCase() + name.slice(1));
+  });
+}
+
+function init() {
+  state.data = A.loadData();
+  A.renderAll();
+
+  document.getElementById('q').addEventListener('input', function () { A.applyFilter(); });
+  document.getElementById('pills').addEventListener('click', function (e) {
+    var b = e.target && e.target.closest ? e.target.closest('.pill') : null;
+    if (!b) { return; }
+    Array.prototype.forEach.call(document.querySelectorAll('.pill'), function (x) { x.classList.remove('active'); });
+    b.classList.add('active');
+    A.applyFilter();
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target || !e.target.closest) { return; }
+    var all = e.target.closest('.copy-all');
+    if (all) {
+      var card = all.closest('.card');
+      var codes = Array.prototype.map.call(card.querySelectorAll('button.copy'), function (b) { return b.getAttribute('data-code'); });
+      A.copyText(codes.join('\n'), all, '复制全部');
+      return;
+    }
+    var one = e.target.closest('button.copy');
+    if (one) { A.copyText(one.getAttribute('data-code'), one, '复制'); }
+  });
+
+  document.getElementById('btnEdit').addEventListener('click', function () { window.__EDITOR__.open(); });
+  window.__EDITOR__.bind();
+
+  Array.prototype.forEach.call(document.querySelectorAll('.tabs button'), function (b) {
+    b.addEventListener('click', function () { switchTab(b.getAttribute('data-tab')); });
+  });
+  document.getElementById('editClose').addEventListener('click', function () { window.__EDITOR__.close(); });
+  document.getElementById('btnSave').addEventListener('click', function () { window.__EDITOR__.save(); });
+  document.getElementById('btnDiscard').addEventListener('click', function () {
+    if (window.__EDITOR__.isDirty() && !window.confirm('放弃全部未保存的修改？')) { return; }
+    window.__EDITOR__.discard();
+  });
+
+  window.__BULK__.bind();
+  window.__DRAW__.bind();
+
+  Array.prototype.forEach.call(document.querySelectorAll('.modal'), function (m) {
+    m.addEventListener('click', function (e) {
+      if (e.target === m) {
+        if (m.id === 'editModal' && window.__EDITOR__.isDirty() && !window.confirm('放弃未保存的修改？')) { return; }
+        m.classList.remove('on');
+      }
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      Array.prototype.forEach.call(document.querySelectorAll('.modal.on'), function (m) {
+        if (m.id === 'editModal' && window.__EDITOR__.isDirty() && !window.confirm('放弃未保存的修改？')) { return; }
+        m.classList.remove('on');
+      });
+    }
+  });
+}
+
+if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
+window.__INIT__ = { switchTab: switchTab };
+})();
+
+</script>
+</body>
+</html>
